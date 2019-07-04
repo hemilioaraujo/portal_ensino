@@ -1,6 +1,6 @@
 PORTAL DE ENSINO
 =====================
-### PROJETO INICIAÇÃO CIENTÍFICA ALUNOS CIÊNCIA DA COMPUTAÇÃO UNIPAC  
+### PROJETO DE INICIAÇÃO CIENTÍFICA DOS ALUNOS DE CIÊNCIA DA COMPUTAÇÃO DA UNIPAC  
 ![logo-unipac](https://bitbucket.org/pic_unipac/portal_ensino/raw/2f2393fb69d4d293fa7e6663e149e6525b7081ee/arquivos_readme/logo_unipac.png)
 
 Este projeto está sendo desenvolvido em **[Python]** utilizando o framework web **[Django]**.
