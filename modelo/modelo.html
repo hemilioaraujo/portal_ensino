@@ -34,16 +34,56 @@
                         <div class="form-group row">
                             <div class="col-auto">
                                 <button type="submit" class="btn btn-primary">Entrar</button>
-                                <button type="submit" class="btn btn-outline-primary">Cadastre-se</button>
-                            </div>
-                        </div>
                     </form>
                 </div>
+                <button onclick="document.getElementById('id01').style.display='block'" class='btn btn-success'>Sign Up</button>
+
+                <div id="id01" class="modal">
+                  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                  <form class="form-group">
+                    <div class="container">
+                      <h1>Sign Up</h1>
+                      <p>Please fill in this form to create an account.</p>
+                      <hr>
+                      <div class="form-group row">
+                        <label for="inputEmail1" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail1" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword1" class="col-sm-2 col-form-label">Senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword1" placeholder="Senha" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword1" class="col-sm-2 col-form-label">Repita a senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword1" placeholder="Senha" required>
+                        </div>
+                    </div>
+                      <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                      </label>
+                
+                      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                
+                      <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-danger">Cancel</button>
+                        <button type="submit" class="btn btn-success">Sign Up</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
             
             <div class="col">
                 
             </div>
-    </section>   
+    </section>
     <footer>&copy; UNIPAC</footer>
+
 </body>
 </html>
