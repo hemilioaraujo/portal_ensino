@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block main %}
+
+    <header>
+        <h1>SEJA BEM VINDO</h1>
+    </header>
+    <section class="row">
+            <div class="col">
+        
+            </div>
+            
+                <div class="col-9 col-sm-7 col-lg-4 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail1" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword1" class="col-sm-2 col-form-label">Senha</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword1" placeholder="Senha" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary">Entrar</button>
+                    </form>
+                </div>
+                <button onclick="document.getElementById('id01').style.display='block'" class='btn btn-success'>Cadastre-se</button>
+
+                <div id="id01" class="modal">
+                  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                  <form class="form-group">
+                    <div class="container">
+                      <h1>Cadastre-se</h1>
+                      <p>Por favor, preencha todos os campos para criar sua nova conta. :)</p>
+                      <hr>
+                      <div class="form-group row">
+                        <label for="inputEmail1" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail1" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword1" class="col-sm-2 col-form-label">Senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword1" placeholder="Senha" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword1" class="col-sm-2 col-form-label">Repita a senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword1" placeholder="Senha" required>
+                        </div>
+                    </div>
+                      <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Lembrar de mim
+                      </label>
+                                
+                      <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="btn btn-danger">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Entrar</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+            
+            <div class="col">
+                
+            </div>
+    </section>
+    
+{% endblock %}
+
+{% block footer %}
+
+    <footer>&copy; UNIPAC</footer>
+
+{% endblock %}
+</html>
