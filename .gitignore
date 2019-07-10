@@ -3,3 +3,4 @@ venv/
 .env
 *.sqlite3
 __pycache__/
+arquivos_temporarios/hlam.txt
