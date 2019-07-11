@@ -121,9 +121,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 STATICFILES_DIRS = [
-    'arquivos_estaticos',
-    'arquivos_estaticos/CSS',
-    'arquivos_estaticos/JS',
+    'estaticos',
+    'estaticos/CSS',
+    'estaticos/JS',
 ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = 'media'

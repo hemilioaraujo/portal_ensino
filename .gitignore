@@ -4,3 +4,4 @@ venv/
 *.sqlite3
 __pycache__/
 arquivos_temporarios/hlam.txt
+media/
