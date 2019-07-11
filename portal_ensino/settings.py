@@ -123,5 +123,7 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = [
-    'arquivos_temporarios/modelo',
+    'arquivos_estaticos',
+    'arquivos_estaticos/CSS',
+    'arquivos_estaticos/JS',
 ]
