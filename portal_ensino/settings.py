@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portal_ensino.usuarios',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
