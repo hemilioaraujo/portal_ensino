@@ -5,15 +5,17 @@ PORTAL DE ENSINO
 
 Este projeto está sendo desenvolvido em **[Python]** utilizando o framework web **[Django]**.
 
-####Requisitos:
+#### Requisitos:
 
-* Django 2.2.3
-* Decouple 3.1
+* Django==2.2.3
+* django-bootstrap-form==3.4
+* python-decouple==3.1
+* Pillow==6.1.0
 
-Para instalar os requisitos, basta executar o comando:  
+#### Para instalar os requisitos, basta executar o comando:  
 
 ```shell
-pip install -r requirements.txt
+    pip install -r requirements.txt
 ```  
 
 [Python]: https://www.python.org/
