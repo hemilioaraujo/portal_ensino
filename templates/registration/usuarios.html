@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block title %} Portal - Cadastro {% endblock %}
+
+{% block main %}
+<header>
+    <h1>CADASTE-SE</h1>
+</header>
+<section class="row">
+        <div class="col">
+    
+        </div>
+        
+        <div class="col-9 col-sm-7 col-lg-4 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+            <ul>
+                {% for usuario in usuarios %}
+                    <li>{{ usuario.id }} - {{ usuario.nome }} - <img src="{{ usuario.foto }}" alt=""></li>
+                {% endfor %}
+            </ul>
+        
+            <div>
+                <form action="{% url 'novo_usuario' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <button type="submit" class="btn btn-success">Salvar</button>
+        
+                </form>
+            </div>
+        
+        </div>
+        
+        <div class="col">
+            
+        </div>
+</section>
+    
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
