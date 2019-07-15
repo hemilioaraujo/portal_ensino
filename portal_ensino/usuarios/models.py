@@ -5,6 +5,7 @@ class Usuario(models.Model):
     id = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=30)
     sobrenome = models.CharField(max_length=30)
+    email = models.EmailField(max_length=30)
     instituicao = models.CharField(max_length=30)
     data_nascimento = models.DateField(default='1970-01-01')
     bio = models.TextField()

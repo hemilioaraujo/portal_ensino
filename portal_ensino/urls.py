@@ -14,12 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import login
+from .usuarios import urls as urls_usuarios
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login),
+
+    # redirecionapara app usuarios
+    path('usuarios/', include(urls_usuarios))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # possibilita visualizar imagens dos profiles
