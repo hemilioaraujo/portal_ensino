@@ -1,17 +1,31 @@
 from django.shortcuts import render, redirect
-from .models import Usuario
-from .forms import UsuarioForm
+from django.contrib.auth.models import User
+from .models import Profile
+from .forms import UserForm, ProfileForm
 
-# Create your views here.
 
 def usuarios_list(request):
-    usuarios = Usuario.objects.all()
-    return render(request, 'registration/usuarios.html', {'usuarios': usuarios})
+    usuarios = User.objects.all()
+    return render(request, 'usuarios.html', {'usuarios': usuarios})
+
 
 def usuarios_novo(request):
-    form = UsuarioForm(request.POST, request.FILES, None)
+    if request.method == 'POST':
+        form_user = UserForm(request.POST, None)
+        form_profile = ProfileForm(request.POST, request.FILES, None)
 
-    if form.is_valid():
-        form.save()
-        return redirect('lista_usuarios')
-    return render(request, 'registration/usuarios.html', {'form': form})
+        if form_user.is_valid() and form_profile.is_valid():
+            user = form_user.save()
+
+            profile = form_profile.save(commit=False)
+            profile.user = user
+
+            profile.save()
+
+            return redirect('lista_usuarios')
+    else:
+        form_user = UserForm()
+        form_profile = ProfileForm()
+
+    itens_da_pagina = {'form_user': form_user, 'form_profile': form_profile}
+    return render(request, 'registration/registro.html', itens_da_pagina)

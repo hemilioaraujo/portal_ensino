@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import login
+from .views import login, home
 from .usuarios import urls as urls_usuarios
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login),
+    path('', home),
 
     # redirecionapara app usuarios
     path('usuarios/', include(urls_usuarios))

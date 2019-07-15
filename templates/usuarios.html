@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block main %}
+
+<ul>
+    {% for usuario in usuarios %}
+        <li>{{ usuario.id }} - {{ usuario.nome }} - <img src="{{ usuario.foto }}" alt=""></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+{% block footer %}
+
+    <footer>&copy; UNIPAC</footer>
+
+{% endblock %}
