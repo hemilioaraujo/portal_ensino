@@ -6,7 +6,7 @@ from .forms import UsuarioForm
 
 def usuarios_list(request):
     usuarios = Usuario.objects.all()
-    return render(request, 'usuarios.html', {'usuarios': usuarios})
+    return render(request, 'registration/usuarios.html', {'usuarios': usuarios})
 
 def usuarios_novo(request):
     form = UsuarioForm(request.POST, request.FILES, None)
@@ -14,4 +14,4 @@ def usuarios_novo(request):
     if form.is_valid():
         form.save()
         return redirect('lista_usuarios')
-    return render(request, 'usuarios.html', {'form': form})
+    return render(request, 'registration/usuarios.html', {'form': form})
