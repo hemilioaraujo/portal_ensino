@@ -33,6 +33,18 @@ class UserForm(UserCreationForm):
 
 
 class ProfileForm(ModelForm):
+
+
+    def __init__(self, *args, **kwargs):
+        super(ProfileForm, self).__init__(*args, **kwargs)
+        self.fields["instituicao"].label = "Instituição:"
+        self.fields["data_nascimento"].label = "Data de nascimento:"
+        self.fields["bio"].label = "Um pouco sobre você:"
+        self.fields["foto"].label = "Seu avatar:"
+
+        # pode fazer isso com todos os campos
+
+
     class Meta:
         model = Profile
         fields = [
@@ -41,3 +53,4 @@ class ProfileForm(ModelForm):
             'bio',
             'foto'
         ]
+
