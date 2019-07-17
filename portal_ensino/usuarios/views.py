@@ -32,8 +32,13 @@ def usuarios_novo(request):
     return render(request, 'registration/registro.html', itens_da_pagina)
 
 
-def login(request):
-    pass
+def do_login(request):
+    if request.method == 'POST':
+        user = authenticate(username=request.POST['username'], password=request.POST['password'])
+        if user is not None:
+            login(reques, user)
+            return redirect('home')
+    return render(request, 'registration/login.html')
 
 
 def my_logout(request):

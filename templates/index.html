@@ -25,7 +25,7 @@
                 {% else %}
                     <a class="navbar-brand" href="#">Portal Unipac - Geometria Analítica</a>
                     <div class="navbar-brand">
-                            <a href="login/" class="btn btn-primary">Login</a>
+                            <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
                             <a href="{% url 'novo_usuario' %}" class="btn btn-success" >Cadastre-se</a>
                     </div>
                 {% endif %}
