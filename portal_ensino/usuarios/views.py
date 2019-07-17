@@ -23,7 +23,7 @@ def usuarios_novo(request):
 
             profile.save()
 
-            return redirect('home')
+            return render(request, 'index.html')
     else:
         form_user = UserForm()
         form_profile = ProfileForm()
