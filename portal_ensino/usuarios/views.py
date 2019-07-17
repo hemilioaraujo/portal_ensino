@@ -12,18 +12,21 @@ def usuarios_list(request):
 
 def usuarios_novo(request):
     if request.method == 'POST':
-        form_user = UserForm(request.POST, None)
-        form_profile = ProfileForm(request.POST, request.FILES, None)
+        if 'cancel' in request.POST:
+            return redirect('home')
+        else:
+            form_user = UserForm(request.POST, None)
+            form_profile = ProfileForm(request.POST, request.FILES, None)
 
-        if form_user.is_valid() and form_profile.is_valid():
-            user = form_user.save()
+            if form_user.is_valid() and form_profile.is_valid():
+                user = form_user.save()
 
-            profile = form_profile.save(commit=False)
-            profile.user = user
+                profile = form_profile.save(commit=False)
+                profile.user = user
 
-            profile.save()
+                profile.save()
 
-            return render(request, 'index.html')
+                return render(request, 'index.html')
     else:
         form_user = UserForm()
         form_profile = ProfileForm()
