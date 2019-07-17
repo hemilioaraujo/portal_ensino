@@ -36,7 +36,7 @@ def do_login(request):
     if request.method == 'POST':
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
-            login(reques, user)
+            login(request, user)
             return redirect('home')
     return render(request, 'registration/login.html')
 
