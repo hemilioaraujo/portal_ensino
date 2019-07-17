@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from .models import Profile
 from .forms import UserForm, ProfileForm
+
+from django.contrib.auth import authenticate, login, logout
 
 
 def usuarios_list(request):
@@ -22,10 +23,19 @@ def usuarios_novo(request):
 
             profile.save()
 
-            return redirect('lista_usuarios')
+            return redirect('home')
     else:
         form_user = UserForm()
         form_profile = ProfileForm()
 
     itens_da_pagina = {'form_user': form_user, 'form_profile': form_profile}
     return render(request, 'registration/registro.html', itens_da_pagina)
+
+
+def login(request):
+    pass
+
+
+def my_logout(request):
+    logout(request)
+    return redirect('home')

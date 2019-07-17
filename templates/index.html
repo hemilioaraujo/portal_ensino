@@ -20,7 +20,7 @@
                     <spam class="navbar-brand">Portal Unipac - Geometria Analítica</spam>
                     <div class="navbar-brand">
                         <spam class="navbar-brand" >Olá {{ user.username }}</spam>
-                        <a href="login/" class="btn btn-danger btn-sm font-weight-bold ">Sair</a>
+                        <a href="{% url 'logout' %}" class="btn btn-danger btn-sm font-weight-bold ">Sair</a>
                     </div>
                 {% else %}
                     <a class="navbar-brand" href="#">Portal Unipac - Geometria Analítica</a>
