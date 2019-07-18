@@ -22,7 +22,6 @@ from .usuarios import urls as urls_usuarios
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('login/', login),
     path('', home, name='home'),
 
     # redirecionapara app usuarios

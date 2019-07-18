@@ -132,5 +132,4 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = 'media'
 
-
-LOGIN_URL = '/do_login'
+LOGIN_URL = 'login'
