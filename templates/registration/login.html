@@ -5,47 +5,54 @@
 {% block main %}
 
     <header>
-        <h1>SEJA BEM VINDO</h1>
+        <h1>Portal Unipac <br> Geometria Analítica</h1>
     </header>
     <section class="row">
-            <div class="col">
-        
-            </div>
-            
-            <div class="col-9 col-sm-7 col-lg-5 text-justify shadow p-3 mb-5 bg-white rounded align-center">
-                <form action="{% url 'login' %}" class="form-signin" method="post">
-                    {% csrf_token %}
-                    <div class="form-group row">
-                        <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Username" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword1" class="col-sm-2 col-form-label">Senha</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputPassword1" name="password" placeholder="Senha" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary">Entrar</button>
-                </form>
-            </div>
-            <a href="{% url 'novo_usuario' %}" class="btn btn-success">Cadastre-se</a>
-            </div>
+        <div class="col">
+    
         </div>
             
-            <div class="col">
-                
-            </div>
+        <div class="col-10 col-sm-9 col-md-7 col-lg-5 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+            <form action="{% url 'login' %}" class="form-signin" method="post">
+                {% csrf_token %}
+                <h2 style="margin-bottom: 10px !important">Fazer Login</h2>
+                <div class="form-group row">
+                    <label for="inputUsername" class="col-sm-2 col-form-label">Usuário</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Nome de usuário" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword1" class="col-sm-2 col-form-label">Senha</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword1" name="password" placeholder="Senha" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                        <a href="{% url 'novo_usuario' %}" class="btn btn-success">Cadastre-se</a>
+                    </div>
+                    <div class="col-2">
+                        <a href="{% url 'home' %}" class="btn btn-secondary float-right">Voltar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+         
+        <div class="col">
+            
+        </div>
     </section>
     
 {% endblock %}
 
 {% block footer %}
 
-    <footer>&copy; UNIPAC</footer>
+    <footer class="card-footer fixed-bottom small">
+        Projeto de iniciação cientfica realizada pelos alunos da Computação <br>
+        &copy; UNIPAC 2019
+    </footer>
 
 {% endblock %}
 
