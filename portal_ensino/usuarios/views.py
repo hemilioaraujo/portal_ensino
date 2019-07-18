@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .forms import UserForm, ProfileForm
 
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -42,6 +43,10 @@ def do_login(request):
         if user is not None:
             login(request, user)
             return redirect('home')
+        else:
+            messages.error(request,'Nome de usuário ou senha incorretos :(')
+            return redirect('login')
+    
     return render(request, 'registration/login.html')
 
 
