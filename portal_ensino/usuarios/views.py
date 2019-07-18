@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from .forms import UserForm, ProfileForm
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def usuarios_list(request):
     usuarios = User.objects.all()
     return render(request, 'usuarios.html', {'usuarios': usuarios})
@@ -41,6 +42,6 @@ def do_login(request):
     return render(request, 'registration/login.html')
 
 
-def my_logout(request):
+def do_logout(request):
     logout(request)
     return redirect('home')
