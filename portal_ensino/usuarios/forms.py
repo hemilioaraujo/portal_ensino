@@ -24,7 +24,6 @@ class UserForm(UserCreationForm):
         widget=forms.PasswordInput,
     )
 
-
     class Meta:
         model = User
         fields = [
@@ -41,7 +40,6 @@ class UserForm(UserCreationForm):
 
 class ProfileForm(ModelForm):
 
-
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
         self.fields["instituicao"].label = "Instituição:"
@@ -50,7 +48,6 @@ class ProfileForm(ModelForm):
         self.fields["foto"].label = "Seu avatar:"
 
         # pode fazer isso com todos os campos
-
 
     class Meta:
         model = Profile
@@ -61,3 +58,29 @@ class ProfileForm(ModelForm):
             'foto'
         ]
 
+
+class UserUpdateForm(ModelForm):
+    email = forms.EmailField(required=True, label='E-mail:')
+    first_name = forms.CharField(max_length=30, label='Nome:')
+    last_name = forms.CharField(max_length=30, label='Sobrenome:')
+    username = forms.CharField(max_length=30, label='Usuário:')
+
+    class Meta:
+        model = User
+        fields = [
+            'first_name',
+            'last_name',
+            'username',
+            'email',
+        ]
+
+
+class ProfileUpdateForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = [
+            'instituicao',
+            'data_nascimento',
+            'bio',
+            'foto'
+        ]
