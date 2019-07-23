@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from .forms import UserForm, ProfileForm
+from .forms import UserForm, ProfileForm, UserUpdateForm, ProfileUpdateForm
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -53,3 +53,16 @@ def do_login(request):
 def do_logout(request):
     logout(request)
     return redirect('home')
+
+
+@login_required
+def usuario_update(request):
+    update_user_form = UserUpdateForm()
+    update_profile_form = ProfileUpdateForm()
+
+    itens_da_pagina = {
+        'update_user_form': update_user_form,
+        'update_profile_form': update_profile_form,
+    }
+
+    return render(request, 'atualizar-profile', itens_da_pagina)
