@@ -58,14 +58,17 @@ def do_logout(request):
 @login_required
 def usuarios_update(request):
     if request.method == 'POST':
-        update_user_form = UserUpdateForm(request.POST, instance=request.user)
-        update_profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if 'cancel' in request.POST:
+            return redirect('home')
+        else:
+            update_user_form = UserUpdateForm(request.POST, instance=request.user)
+            update_profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
 
-        if update_user_form.is_valid() and update_profile_form.is_valid():
-            update_user_form.save()
-            update_profile_form.save()
+            if update_user_form.is_valid() and update_profile_form.is_valid():
+                update_user_form.save()
+                update_profile_form.save()
 
-            return render(request, 'index.html')
+                return redirect('atualizar_usuario')
     else:
         update_user_form = UserUpdateForm(instance=request.user)
         update_profile_form = ProfileUpdateForm(instance=request.user.profile)
