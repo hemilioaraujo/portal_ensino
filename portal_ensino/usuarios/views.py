@@ -56,13 +56,23 @@ def do_logout(request):
 
 
 @login_required
-def usuario_update(request):
-    update_user_form = UserUpdateForm()
-    update_profile_form = ProfileUpdateForm()
+def usuarios_update(request):
+    if request.method == 'POST':
+        update_user_form = UserUpdateForm(request.POST, instance=request.user)
+        update_profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if update_user_form.is_valid() and update_profile_form.is_valid():
+            update_user_form.save()
+            update_profile_form.save()
+
+            return render(request, 'index.html')
+    else:
+        update_user_form = UserUpdateForm(instance=request.user)
+        update_profile_form = ProfileUpdateForm(instance=request.user.profile)
 
     itens_da_pagina = {
         'update_user_form': update_user_form,
         'update_profile_form': update_profile_form,
     }
 
-    return render(request, 'atualizar-profile', itens_da_pagina)
+    return render(request, 'atualizar_usuario.html', itens_da_pagina)
