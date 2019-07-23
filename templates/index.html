@@ -21,7 +21,7 @@
                 {% if user.is_authenticated %}
                     <spam class="navbar-brand title">Portal Unipac - Geometria Analítica</spam>
                     <div class="navbar-brand">
-                        <img src="{{ user.profile.foto.url }}" class="rounded-circle" height="30px" width="30px" alt="">
+                        <a href="{% url 'atualizar_usuario' %}"><img src="{{ user.profile.foto.url }}" class="rounded-circle" height="30px" width="30px" alt=""></a>
                         <spam class="navbar-brand title" style="font-size: 1em">Olá {{ user.username }}</spam>
                         <a href="{% url 'logout' %}" style="font-size: 0.7em" class="btn btn-danger btn-sm font-weight-bold">Sair</a>
                     </div>
