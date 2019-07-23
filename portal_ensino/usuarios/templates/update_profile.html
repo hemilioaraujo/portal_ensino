@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% load static %}
+
+
+{% block title %} Informações do Usuário {% endblock %}
+
+{% block main %}
+<header>
+    <h1>Profile</h1>
+</header>
+<section class="row">
+        <div class="col">
+
+        </div>
+
+        <div class="col-9 col-sm-7 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+            <div>
+                <form action="{% url 'novo_usuario' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ update_user_form|bootstrap }}
+                    {{ update_profile_form|bootstrap }}
+                    <button type="submit" class="btn btn-success">Atualizar</button>
+                    <input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate/>
+                </form>
+            </div>
+        </div>
+
+        <div class="col">
+
+        </div>
+</section>
+
+{% endblock %}
+
+{% block footer %}
+<footer class="mb-4 small">
+    Projeto de iniciação cientfica realizada pelos alunos da Computação <br>
+    &copy; UNIPAC 2019
+</footer>
+{% endblock %}
