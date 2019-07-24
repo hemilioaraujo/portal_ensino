@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from .forms import UserForm, ProfileForm, UserUpdateForm, ProfileUpdateForm
 
@@ -76,6 +76,20 @@ def usuarios_update(request):
     itens_da_pagina = {
         'update_user_form': update_user_form,
         'update_profile_form': update_profile_form,
+        'user': request.user,
     }
 
     return render(request, 'atualizar_usuario.html', itens_da_pagina)
+
+
+@login_required
+def usuarios_delete(request, id):
+    user = get_object_or_404(User, pk=id)
+
+    if request.user.id == id:
+        if request.method == 'POST':
+            user.delete()
+            return redirect('home')
+        return render(request, 'confirma_deletar_usuario.html', {'user': user})
+    else:
+        return redirect('home')
