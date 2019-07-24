@@ -2,13 +2,14 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from .views import usuarios_list, usuarios_novo, do_logout, do_login, usuarios_update
+from .views import usuarios_list, usuarios_novo, do_logout, do_login, usuarios_update, usuarios_delete
 
 
 urlpatterns = [
     path('list/', usuarios_list, name='lista_usuarios'),
     path('novo/', usuarios_novo, name="novo_usuario"),
     path('atualizar-usuario/', usuarios_update, name="atualizar_usuario"),
+    path('deletar-usuario/<int:id>', usuarios_delete, name="deletar_usuario"),
     path('logout/', do_logout, name="logout"),
     path('login/', do_login, name="login"),
 
