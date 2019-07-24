@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from PIL import Image
 import os
@@ -11,6 +12,12 @@ def renomear_imagem(instance, filename):
     filename = f'{instance.user}.{ext}'
 
     return os.path.join(upload_to, filename)
+
+
+def email_unico(value):
+    exists = User.objects.filter(email=value)
+    if exists:
+        raise ValidationError(f'O e-mail {value} já está cadastrado!')
 
 
 # Create your models here.
