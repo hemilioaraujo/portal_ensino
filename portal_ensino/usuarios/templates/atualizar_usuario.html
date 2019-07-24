@@ -21,6 +21,7 @@
                     {{ update_user_form|bootstrap }}
                     {{ update_profile_form|bootstrap }}
                     <button type="submit" class="btn btn-success">Atualizar</button>
+                    <a href="{% url 'deletar_usuario' user.id %}" class="btn btn-danger">Excluir</a>
                     <input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate/>
                 </form>
             </div>
