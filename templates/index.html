@@ -18,10 +18,17 @@
     <body class="bg-light">
         <nav class="navbar navbar-dark navbar-expand-sm" style="background: lightseagreen">
             <div class="container-fluid">
+
                 {% if user.is_authenticated %}
                     <spam class="navbar-brand title">Portal Unipac - Geometria Analítica</spam>
                     <div class="navbar-brand">
-                        <a href="{% url 'atualizar_usuario' %}"><img src="{{ user.profile.foto.url }}" class="rounded-circle" height="30px" width="30px" alt=""></a>
+
+                        {% if user.profile.foto %}
+                            <a href="{% url 'atualizar_usuario' %}"><img src="{{ user.profile.foto.url }}" class="rounded-circle" height="30px" width="30px" alt=""></a>
+                        {% else %}
+                            <a href="{% url 'atualizar_usuario' %}"><img src="/media/fotos/profile/default.jpeg" class="rounded-circle" height="30px" width="30px" alt=""></a>
+                        {% endif %}
+
                         <spam class="navbar-brand title" style="font-size: 1em">Olá {{ user.username }}</spam>
                         <a href="{% url 'logout' %}" style="font-size: 0.7em" class="btn btn-danger btn-sm font-weight-bold">Sair</a>
                     </div>
@@ -32,6 +39,7 @@
                         <a href="{% url 'novo_usuario' %}" style="font-size: 0.88em; margin-right: -15px" class="btn btn-success font-weight-bold" >Cadastre-se</a>
                     </div>
                 {% endif %}
+
             </div>
         </nav>
         
