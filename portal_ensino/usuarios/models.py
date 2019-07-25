@@ -1,12 +1,15 @@
 from django.db import models
 from django.db.models.signals import post_delete, pre_save
 from django.dispatch import receiver
-from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from PIL import Image
 import os
 
+# EMAIL COMO ITEM ÚNICO
+User._meta.get_field('email')._unique = True
 
+
+# NOMEAR IMAGEM COM O NOME DO USUÁRIO
 def renomear_imagem(instance, filename):
     upload_to = 'fotos/profile/'
     ext = filename.split('.')[-1]
@@ -16,10 +19,18 @@ def renomear_imagem(instance, filename):
     return os.path.join(upload_to, filename)
 
 
+# INUTILIZADO, NÃO APAGAR
+'''
+from django.core.exceptions import ValidationError
+
 def email_unico(value):
     exists = User.objects.filter(email=value)
     if exists:
         raise ValidationError(f'O e-mail {value} já está cadastrado!')
+        
+        
+# USAR COMO ARGUMENTO NOS FIELDS -> validators=[email_unico]
+'''
 
 
 # Create your models here.
