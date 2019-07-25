@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from PIL import Image
@@ -41,3 +43,12 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.foto.path)
+
+
+# ELIMINA A IMAGEM DE PROFILE QUANDO O MESMO É EXCLUIDO
+@receiver(post_delete, sender=Profile)
+def deletar_imagem_profile(sender, instance, **kwargs):
+    if instance.foto.url == '/media/fotos/profile/default.jpeg':
+        pass
+    else:
+        instance.foto.delete(False)
