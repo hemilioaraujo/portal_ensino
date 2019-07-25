@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.signals import post_delete
+from django.db.models.signals import post_delete, pre_save
 from django.dispatch import receiver
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
@@ -45,10 +45,29 @@ class Profile(models.Model):
             img.save(self.foto.path)
 
 
-# ELIMINA A IMAGEM DE PROFILE QUANDO O MESMO É EXCLUIDO
+# ELIMINA A IMAGEM DE PROFILE QUANDO A MESMA É EXCLUIDA
 @receiver(post_delete, sender=Profile)
-def deletar_imagem_profile(sender, instance, **kwargs):
+def deletar_imagem_profile_on_delete(sender, instance, **kwargs):
     if instance.foto.url == '/media/fotos/profile/default.jpeg':
         pass
     else:
         instance.foto.delete(False)
+
+
+# ELIMINA A IMAGEM DE PROFILE QUANDO A MESMA É ALTERADA
+@receiver(pre_save, sender=Profile)
+def deletar_imagem_profile_on_change(sender, instance, **kwargs):
+    if not instance.pk:
+        return False
+
+    try:
+        old_foto = sender.objects.get(pk=instance.pk).foto
+    except sender.DoesNotExist:
+        return False
+
+    new_foto = instance.foto
+    if not old_foto == new_foto and not old_foto == 'fotos/profile/default.jpeg':
+        # print('VAI EXCLUIR')
+        # print(old_foto)
+        if os.path.isfile(old_foto.path):
+            os.remove(old_foto.path)
