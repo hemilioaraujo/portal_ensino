@@ -88,8 +88,11 @@ def usuarios_delete(request, id):
 
     if request.user.id == id:
         if request.method == 'POST':
-            user.delete()
-            return redirect('home')
+            if 'cancel' in request.POST:
+                return redirect('atualizar_usuario')
+            else:
+                user.delete()
+                return redirect('home')
         return render(request, 'confirma_deletar_usuario.html', {'user': user})
     else:
         return redirect('home')

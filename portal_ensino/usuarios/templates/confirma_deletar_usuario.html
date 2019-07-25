@@ -1,12 +1,45 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
+{% load static %}
 
-{% block title %} Deletar Usuário {% endblock %}
 
+{% block title %} Recadastrar Senha {% endblock %}
 
 {% block main %}
-    <h1>Certeza que deseja deletar {{ user.username }}?</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
+<header>
+    <h1>Portal Unipac<br>Geometria Analítica</h1>
+</header>
+<section class="row">
+        <div class="col">
+
+        </div>
+        
+        <div class="col-10 col-sm-9 col-md-7 col-lg-6 shadow p-3 mb-5 bg-white rounded align-center">
+            <div class="form-text font-weight-bold">Tem certeza disso?</div>
+            <div class="form-text mb-2 text-danger">Depois de confirmado o usuário "<b>{{ user.username }}</b>" sera excluído para sempre!</div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger" onclick="alertDelete()">Deletar</button>
+                <input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate/>
+            </form>
+        </div>
+        
+        <div class="col">
+
+        </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer class="mb-4 small">
+    Projeto de iniciação cientfica realizada pelos alunos da Computação <br>
+    &copy; UNIPAC 2019
+</footer>
+
+<script>
+    function alertDelete(){
+        alert('O usuário foi excluído com sucesso.')
+    }
+</script>
+
 {% endblock %}
