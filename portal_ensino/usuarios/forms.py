@@ -2,12 +2,12 @@ from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, email_unico
+from .models import Profile
 
 
 class UserForm(UserCreationForm):
 
-    email = forms.EmailField(required=True, label='E-mail:', validators=[email_unico])
+    email = forms.EmailField(required=True, label='E-mail:')
     first_name = forms.CharField(max_length=30, label='Nome:')
     last_name = forms.CharField(max_length=30, label='Sobrenome:')
     username = forms.CharField(max_length=30, label='Usuário:')
@@ -60,7 +60,7 @@ class ProfileForm(ModelForm):
 
 
 class UserUpdateForm(ModelForm):
-    email = forms.EmailField(required=True, label='E-mail:', validators=[email_unico])
+    email = forms.EmailField(required=True, label='E-mail:')
     first_name = forms.CharField(max_length=30, label='Nome:')
     last_name = forms.CharField(max_length=30, label='Sobrenome:')
     username = forms.CharField(max_length=30, label='Usuário:')
