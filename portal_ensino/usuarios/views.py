@@ -97,3 +97,8 @@ def usuarios_delete(request, id):
         return render(request, 'confirma_deletar_usuario.html', {'user': user})
     else:
         return redirect('home')
+
+
+@login_required
+def usuarios_show_profile(request):
+    return render(request, 'profile_usuario.html', {'user': request.user})

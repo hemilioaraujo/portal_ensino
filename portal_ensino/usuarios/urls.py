@@ -2,7 +2,8 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from .views import usuarios_list, usuarios_novo, do_logout, do_login, usuarios_update, usuarios_delete
+from .views import usuarios_list, usuarios_novo, do_logout, \
+    do_login, usuarios_update, usuarios_delete, usuarios_show_profile
 
 
 urlpatterns = [
@@ -12,6 +13,7 @@ urlpatterns = [
     path('deletar-usuario/<int:id>', usuarios_delete, name="deletar_usuario"),
     path('logout/', do_logout, name="logout"),
     path('login/', do_login, name="login"),
+    path('profile/', usuarios_show_profile, name="exibir_profile"),
 
     # PASSWORD RESET
     path('password-reset/',
