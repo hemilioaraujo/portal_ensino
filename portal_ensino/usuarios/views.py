@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def usuarios_list(request):
     usuarios = User.objects.all()
+
     return render(request, 'usuarios.html', {'usuarios': usuarios})
 
 
