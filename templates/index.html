@@ -25,7 +25,7 @@
                     <spam class="navbar-brand title">Portal Unipac - Geometria Analítica</spam>
                     <div class="navbar-brand dropdown dropdown-bubble">
                         {% if user.profile.foto %}
-                            <a href="{% url 'atualizar_usuario' %}"><img src="{{ user.profile.foto.url }}" class="rounded-circle" height="30px" width="30px" alt=""></a>
+                            <a href="{% url 'atualizar_usuario' %}"><img src="{{ user.profile.foto.url }}" class="rounded-circle" height="30px" width="30px" alt="Profile Image"></a>
                             <a class="navbar-brand title dropdown-toggle" id="dLabel" style="font-size: 1em" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Olá {{ user.username }}</a>
                             <ul class="dropdown-menu" aria-labelledby="dLabel">
                                 <li class="ml-2 font-weight-bold" style="font-size: 0.9em">Sua conta</li>
