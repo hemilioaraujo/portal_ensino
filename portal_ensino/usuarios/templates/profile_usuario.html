@@ -7,23 +7,31 @@
 
 {% block main %}
 <header>
-    <h1>Visualizar Perfil</h1>
+    <h1>Portal Unipac - Geometria Analítica</h1>
 </header>
 <section class="row">
         <div class="col">
 
         </div>
 
-        <div class="col-9 col-sm-7 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
-            <div>
-                <img src="{{ user.profile.foto.url }}" alt=""></br>
-                {{ user.first_name }} {{ user.last_name }}</br>
-                {{ user.username }}</br>
-                {{ user.email }}</br>
-                {{ user.date_joined }}</br>
-                {{ user.profile.bio }}</br>
-                {{ user.profile.data_nascimento }}</br>
-                {{ user.profile.instituicao }}</br>
+        <div class="col-9 col-sm-8 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+            <div class="text-center">
+                {% if user.profile.foto %}
+                    <img src="{{ user.profile.foto.url }}" class="rounded-circle" height="200px" width="200px" alt="">
+                    <a href="{% url 'atualizar_usuario' %}" class="position-absolute"><i class="fas fa-edit"></i> Editar</a>
+                    <div class="font-weight-bold" style="font-size: 2em">{{ user.first_name }} {{ user.last_name }}</div>
+                    <div class="font-italic mb-2" style="font-size: 0.9em">@{{ user.username }} • Membro desde {{ user.date_joined.date }}</div>
+                    <div class="font-italic mb-2" style="font-size: 0.9em"> {{ user.email }} • {{ user.profile.instituicao }}</div>
+                    <div class="font-italic">{{ user.profile.bio }}</div>
+                {% else %}
+                    <img src="/media/fotos/profile/default.jpeg" class="rounded-circle" height="200px" width="200px" alt="">
+                    <a href="{% url 'atualizar_usuario' %}" class="position-absolute"><i class="fas fa-edit"></i> Editar</a>
+                    <div class="font-weight-bold" style="font-size: 2em">{{ user.first_name }} {{ user.last_name }}</div>
+                    <div class="font-italic mb-2" style="font-size: 0.9em">@{{ user.username }} • Membro desde {{ user.date_joined.date }}</div>
+                    <div class="font-italic mb-2" style="font-size: 0.9em"> {{ user.email }} • {{ user.profile.instituicao }}</div>
+                    <div class="font-italic">{{ user.profile.bio }}</div>
+                {% endif %}
+
             </div>
         </div>
 
