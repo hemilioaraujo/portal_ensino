@@ -28,8 +28,10 @@
                             <a href="{% url 'atualizar_usuario' %}"><img src="{{ user.profile.foto.url }}" class="rounded-circle" height="30px" width="30px" alt="Profile Image"></a>
                             <a class="navbar-brand title dropdown-toggle" id="dLabel" style="font-size: 1em" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Olá {{ user.username }}</a>
                             <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                <li class="ml-2 font-weight-bold" style="font-size: 0.9em">Sua conta</li>
+                                   <li class="ml-2 font-weight-bold" style="font-size: 0.9em">Sua conta</li>
+                                <li><a href="{% url 'exibir_profile' %}" style="font-size: 0.8em" class=" ml-2">Vizualizar perfil</a></li>
                                 <li><a href="{% url 'atualizar_usuario' %}" style="font-size: 0.8em" class=" ml-2">Alterar dados</a></li>
+                                <div class="dropdown-divider"></div>
                                 <li><a href="{% url 'logout' %}" style="font-size: 0.8em" class=" ml-2">Sair da conta</a></li>
                             </ul>
                         {% else %}
@@ -37,7 +39,9 @@
                             <a class="navbar-brand title dropdown-toggle" id="dLabel" style="font-size: 1em" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Olá {{ user.username }}</a>
                             <ul class="dropdown-menu" aria-labelledby="dLabel">
                                 <li class="ml-2 font-weight-bold" style="font-size: 0.9em">Sua conta</li>
+                                <li><a href="{% url 'exibir_profile' %}" style="font-size: 0.8em" class=" ml-2">Vizualizar perfil</a></li>
                                 <li><a href="{% url 'atualizar_usuario' %}" style="font-size: 0.8em" class=" ml-2">Alterar dados</a></li>
+                                <div class="dropdown-divider"></div>
                                 <li><a href="{% url 'logout' %}" style="font-size: 0.8em" class=" ml-2">Sair da conta</a></li>
                             </ul>
                         {% endif %}
