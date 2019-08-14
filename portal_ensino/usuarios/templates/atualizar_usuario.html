@@ -27,7 +27,8 @@
                             <a href="{% url 'deletar_usuario' user.id %}" class="btn btn-danger float-right" style="max-width: 18rem;">Excluir</a>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success">Atualizar</button>
+                    <input type="submit" class="btn btn-success" name="save" value="Salvar e sair"/>
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
                     <input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate/>
                 </form>
             </div>

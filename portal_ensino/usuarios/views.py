@@ -29,7 +29,7 @@ def usuarios_novo(request):
 
                 profile.save()
 
-                return render(request, 'index.html')
+                return render(request, 'registration/login.html')
     else:
         form_user = UserForm()
         form_profile = ProfileForm()
@@ -61,6 +61,16 @@ def usuarios_update(request):
     if request.method == 'POST':
         if 'cancel' in request.POST:
             return redirect('home')
+
+        elif 'save' in request.POST:
+            update_user_form = UserUpdateForm(request.POST, instance=request.user)
+            update_profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+            if update_user_form.is_valid() and update_profile_form.is_valid():
+                update_user_form.save()
+                update_profile_form.save()
+
+                return redirect('home')
         else:
             update_user_form = UserUpdateForm(request.POST, instance=request.user)
             update_profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
