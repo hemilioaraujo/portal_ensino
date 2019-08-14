@@ -29,7 +29,7 @@ def usuarios_novo(request):
 
                 profile.save()
 
-                return render(request, 'index.html')
+                return render(request, 'registration/login.html')
     else:
         form_user = UserForm()
         form_profile = ProfileForm()
