@@ -4,6 +4,7 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 from PIL import Image
 import os
+from portal_ensino.aulas.models import Aulas
 
 # EMAIL COMO ITEM ÚNICO
 User._meta.get_field('email')._unique = True
@@ -36,11 +37,11 @@ def email_unico(value):
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-
     instituicao = models.CharField(max_length=30, default='UNIPAC')
     data_nascimento = models.DateField(default='AAAA-MM-DD')
     bio = models.TextField(blank=True)
     foto = models.ImageField(upload_to=renomear_imagem, default='fotos/profile/default.jpeg', null=True, blank=True)
+    aula_atual = models.ForeignKey(Aulas, default=1, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'Usuário: {self.user.username} Email: {self.user.email}'
