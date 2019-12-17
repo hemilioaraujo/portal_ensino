@@ -14,9 +14,23 @@ Este projeto está sendo desenvolvido em **[Python]** utilizando o framework web
 
 #### Para instalar os requisitos, basta executar o comando:  
 
-```shell
+```shell script
     pip install -r requirements.txt
 ```  
+
+#### Popular a tabela das aulas:
+
+```shell script
+    python manage.py shell
+```
+
+```python
+    from portal_ensino.aulas.models import Aulas
+
+    objeto = Aulas()
+
+    ob.popular_tabela_aulas()
+```
 
 [Python]: https://www.python.org/
 [Django]: https://www.djangoproject.com/
