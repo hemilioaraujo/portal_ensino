@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrapform',
     'portal_ensino.usuarios',
+    'portal_ensino.aulas',
 ]
 
 MIDDLEWARE = [
