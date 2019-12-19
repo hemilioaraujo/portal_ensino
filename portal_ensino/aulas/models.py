@@ -4,6 +4,7 @@ from django.db import models
 class Aulas(models.Model):
     titulo = models.TextField(blank=False, null=False)
     link = models.TextField(blank=False, null=False)
+    material = models.FileField(upload_to="aulas/materiais", blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Aulas"
