@@ -32,7 +32,7 @@
                     <div class="col-sm-10 input-group"> 
                         <input type="password" class="form-control" placeholder="Senha" id="password" name="password" aria-label="Senha" aria-describedby="show_password">
                         <div class="input-group-append">
-                            <span class="input-group-text bg-light" id="icon_spam"><i class="fa fa-eye-slash  aria-hidden="true"  onclick="show_password()"></i></span>
+                            <span class="input-group-text bg-light" id="icon_spam"><i class="fa fa-eye-slash"  aria-hidden="true"  onclick="show_password()"></i></span>
                         </div>
                     </div>
                     <div class="col"><a href="{% url 'password_reset' %}" class="float-right small">Esqueci a senha</a></div>
@@ -61,10 +61,10 @@
             var icon_spam = document.getElementById("icon_spam")
             if (x.type === "password") {
                 x.type = "text";
-                icon_spam.innerHTML = '<i class="fa fa-eye-slash aria-hidden="true"  onclick="show_password()"></i>'
+                icon_spam.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"  onclick="show_password()"></i>'
             } else {
                 x.type = "password";
-                icon_spam.innerHTML ='<i class="fa fa-eye aria-hidden="true"  onclick="show_password()"></i>'
+                icon_spam.innerHTML ='<i class="fa fa-eye" aria-hidden="true"  onclick="show_password()"></i>'
             }
         }
     </script>

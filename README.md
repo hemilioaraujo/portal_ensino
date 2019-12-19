@@ -32,7 +32,7 @@ from portal_ensino.aulas.models import Aulas
 objeto = Aulas()
 ```
 ```python
-ob.popular_tabela_aulas()
+objeto.popular_tabela_aulas()
 ```
 
 [Python]: https://www.python.org/
