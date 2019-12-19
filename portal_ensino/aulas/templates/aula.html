@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% load static %}
+
+
+{% block title %} Atualizar Perfil {% endblock %}
+
+{% block main %}
+    <div class="iframe-container">
+        <iframe width="560" height="315"
+                src="{{user.profile.aula_atual.link}}"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+    </div>
+
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+    <footer class="mb-4 small">
+        Projeto de iniciação cientfica realizada pelos alunos da Computação <br>
+        &copy; UNIPAC 2019
+    </footer>
+{% endblock %}
