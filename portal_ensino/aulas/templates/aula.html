@@ -13,7 +13,16 @@
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
     </div>
+<br><br><br>
 
+{% if user.profile.aula_atual.material %}
+    <a href="{{ user.profile.aula_atual.material.url }}">Material</a>
+
+<br><br><br>
+{{ user.profile.aula_atual.material }}
+<br>
+{{ user.profile.aula_atual.material.url }}
+{% endif %}
 
 
 {% endblock %}
