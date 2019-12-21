@@ -17,204 +17,204 @@ class Aulas(models.Model):
         Aulas.objects.create(
             id=1,
             titulo='Sistema de Equações',
-            link='https://www.youtube.com/watch?v=pbFZW1eTnkk&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=1')
+            link='pbFZW1eTnkk')
         Aulas.objects.create(
             id=2,
             titulo='Introdução ao Escalonamento',
-            link='https://www.youtube.com/watch?v=wvrMO_C-cdE&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=2')
+            link='wvrMO_C-cdE')
         Aulas.objects.create(
             id=3,
             titulo='Pivô e Escalonamento',
-            link='https://www.youtube.com/watch?v=a_IfBj7Gdfs&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=3')
+            link='a_IfBj7Gdfs')
         Aulas.objects.create(
             id=4,
             titulo='Discussão de Sistema',
-            link='https://www.youtube.com/watch?v=ganCbJlJTbE&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=4')
+            link='ganCbJlJTbE')
         Aulas.objects.create(
             id=5,
             titulo='Resolução de Sistema com Escalonamento',
-            link='https://www.youtube.com/watch?v=eTEPbbhL2hM&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=5')
+            link='eTEPbbhL2hM')
         Aulas.objects.create(
             id=6,
             titulo='Discussão de Sistema - Gauss',
-            link='https://www.youtube.com/watch?v=IQj37-tv5e4&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=6')
+            link='IQj37-tv5e4')
         Aulas.objects.create(
             id=7,
             titulo='Resolução de Sistema por Gauss',
-            link='https://www.youtube.com/watch?v=YXPuZFWGmyw&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=7')
+            link='YXPuZFWGmyw')
         Aulas.objects.create(
             id=8,
             titulo='Vetores',
-            link='https://www.youtube.com/watch?v=0Gp1QgdhujE&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=8')
+            link='0Gp1QgdhujE')
         Aulas.objects.create(
             id=9,
             titulo='Operações com vetores',
-            link='https://www.youtube.com/watch?v=z1DQ3vXvGLw&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=9')
+            link='z1DQ3vXvGLw')
         Aulas.objects.create(
             id=10,
             titulo='Combinação Linear de Vetores',
-            link='https://www.youtube.com/watch?v=eB7KJKV2k-E&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=10')
+            link='eB7KJKV2k-E')
         Aulas.objects.create(
             id=11,
             titulo='Combinação Linear - Ex1',
-            link='https://www.youtube.com/watch?v=8peVbC0j6aI&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=11')
+            link='8peVbC0j6aI')
         Aulas.objects.create(
             id=12,
             titulo='Combinação Linear - Ex2',
-            link='https://www.youtube.com/watch?v=MYH54JuIj0Y&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=12')
+            link='MYH54JuIj0Y')
         Aulas.objects.create(
             id=13,
             titulo='Combinação Linear - Ex3',
-            link='https://www.youtube.com/watch?v=7MVG47_THHg&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=13')
+            link='7MVG47_THHg')
         Aulas.objects.create(
             id=14,
             titulo='Combinação Linear - Ex4',
-            link='https://www.youtube.com/watch?v=K6yWkn59-JI&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=14')
+            link='K6yWkn59-JI')
         Aulas.objects.create(
             id=15,
             titulo='Dependência Linear',
-            link='https://www.youtube.com/watch?v=1NQgheFnX9A&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=15')
+            link='1NQgheFnX9A')
         Aulas.objects.create(
             id=16,
             titulo='Dependência Linear - Ex 1',
-            link='https://www.youtube.com/watch?v=jA-6Xcw8__E&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=16')
+            link='jA-6Xcw8__E')
         Aulas.objects.create(
             id=17,
             titulo='Dependência Linear - Ex 2',
-            link='https://www.youtube.com/watch?v=wgIGAY5nQk0&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=17')
+            link='wgIGAY5nQk0')
         Aulas.objects.create(
             id=18,
             titulo='Dependência Linear - Ex 3',
-            link='https://www.youtube.com/watch?v=V7ysHtEi1q4&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=18')
+            link='V7ysHtEi1q4')
         Aulas.objects.create(
             id=19,
             titulo='Dependência Linear - Ex 4',
-            link='https://www.youtube.com/watch?v=LigrD3eurZs&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=19')
+            link='LigrD3eurZs')
         Aulas.objects.create(
             id=20,
             titulo='Espaço Vetorial - Ex1',
-            link='https://www.youtube.com/watch?v=e8kAs458cVI&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=20')
+            link='e8kAs458cVI')
         Aulas.objects.create(
             id=21,
             titulo='Espaço Vetorial - Ex2',
-            link='https://www.youtube.com/watch?v=KXVCjPjgpq4&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=21')
+            link='KXVCjPjgpq4')
         Aulas.objects.create(
             id=22,
             titulo='Subespaço Vetorial - Ex1',
-            link='https://www.youtube.com/watch?v=XxUWCQaVwKM&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=22')
+            link='XxUWCQaVwKM')
         Aulas.objects.create(
             id=23,
             titulo='Subespaço Vetorial - Ex2',
-            link='https://www.youtube.com/watch?v=HnGwjpfp3Gc&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=23')
+            link='HnGwjpfp3Gc')
         Aulas.objects.create(
             id=24,
             titulo='Subespaço Vetorial - Ex3',
-            link='https://www.youtube.com/watch?v=j9XnjqEUUkQ&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=24')
+            link='j9XnjqEUUkQ')
         Aulas.objects.create(
             id=25,
             titulo='Subespaço Vetorial - Ex4',
-            link='https://www.youtube.com/watch?v=AtMFysEdlag&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=25')
+            link='AtMFysEdlag')
         Aulas.objects.create(
             id=26,
             titulo='Subespaço Vetorial - Ex5',
-            link='https://www.youtube.com/watch?v=YAxsFPVv3ds&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=26')
+            link='YAxsFPVv3ds')
         Aulas.objects.create(
             id=27,
             titulo='Subespaço Gerado - Ex.1',
-            link='https://www.youtube.com/watch?v=lqfAoCG1CMY&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=27')
+            link='lqfAoCG1CMY')
         Aulas.objects.create(
             id=28,
             titulo='Subespaço Gerado - Ex.2',
-            link='https://www.youtube.com/watch?v=zE9g8XT2oMg&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=28')
+            link='zE9g8XT2oMg')
         Aulas.objects.create(
             id=29,
             titulo='Subespaço Gerado - Ex.3',
-            link='https://www.youtube.com/watch?v=WQiEA4_PbbU&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=29')
+            link='WQiEA4_PbbU')
         Aulas.objects.create(
             id=30,
             titulo='Base de um Espaço Vetorial',
-            link='https://www.youtube.com/watch?v=1s1d_z5iQbk&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=30')
+            link='1s1d_z5iQbk')
         Aulas.objects.create(
             id=31,
             titulo='Como calcular uma base geradora',
-            link='https://www.youtube.com/watch?v=H_yOpYU7hTY&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=31')
+            link='H_yOpYU7hTY')
         Aulas.objects.create(
             id=32,
             titulo='Extraindo a base geradora de um subespaço. Exercício 1',
-            link='https://www.youtube.com/watch?v=5dst5A_ch0k&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=32')
+            link='5dst5A_ch0k')
         Aulas.objects.create(
             id=33,
             titulo='Extraindo a base geradora de um subespaço. Exercício 2',
-            link='https://www.youtube.com/watch?v=5kAQ_r1yWXg&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=33')
+            link='5kAQ_r1yWXg')
         Aulas.objects.create(
             id=34,
             titulo='Extraindo a base geradora de um subespaço. Exercício 3',
-            link='https://www.youtube.com/watch?v=ELo65Qjv5Dg&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=34')
+            link='ELo65Qjv5Dg')
         Aulas.objects.create(
             id=35,
             titulo='Extraindo a base geradora de um subespaço. Exercício 4',
-            link='https://www.youtube.com/watch?v=FUOxfqt8zrM&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=35')
+            link='FUOxfqt8zrM')
         Aulas.objects.create(
             id=36,
             titulo='Como extrair uma base geradora de um conjunto de vetores',
-            link='https://www.youtube.com/watch?v=shH9uTczXDI&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=36')
+            link='shH9uTczXDI')
         Aulas.objects.create(
             id=37,
             titulo='Subespaço gerado a partir de um conjunto de vetores',
-            link='https://www.youtube.com/watch?v=ZRuJXCG2CpI&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=37')
+            link='ZRuJXCG2CpI')
         Aulas.objects.create(
             id=38,
             titulo='Mudança de base geradora',
-            link='https://www.youtube.com/watch?v=muA2fcZGQXs&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=38')
+            link='muA2fcZGQXs')
         Aulas.objects.create(
             id=39,
             titulo='Mudança de base sem uso de matriz inversa',
-            link='https://www.youtube.com/watch?v=U55o4HTmPF0&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=39')
+            link='U55o4HTmPF0')
         Aulas.objects.create(
             id=40,
             titulo='Mudança de base . Vetor com 3 componentes',
-            link='https://www.youtube.com/watch?v=Qta17OWjsFs&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=40')
+            link='Qta17OWjsFs')
         Aulas.objects.create(
             id=41,
             titulo='Dedução da Fórmula Matriz Mudança de base',
-            link='https://www.youtube.com/watch?v=4bc1We6Akkc&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=41')
+            link='4bc1We6Akkc')
         Aulas.objects.create(
             id=42,
             titulo='Mudança de Base de um Vetor com a Matriz Mudança de base',
-            link='https://www.youtube.com/watch?v=3F3E8DcivKg&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=42')
+            link='3F3E8DcivKg')
         Aulas.objects.create(
             id=43,
             titulo='Mudança de base demonstrado graficamente',
-            link='https://www.youtube.com/watch?v=9UozHl91Zdg&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=43')
+            link='9UozHl91Zdg')
         Aulas.objects.create(
             id=44,
             titulo='Introdução a Transformação Linear',
-            link='https://www.youtube.com/watch?v=O3rou_UUIIg&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=44')
+            link='O3rou_UUIIg')
         Aulas.objects.create(
             id=45,
             titulo='Transformação Linear',
-            link='https://www.youtube.com/watch?v=h96mnXdcsaI&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=45')
+            link='h96mnXdcsaI')
         Aulas.objects.create(
             id=46,
             titulo='Transformação Linear',
-            link='https://www.youtube.com/watch?v=ZB28kpo0VTQ&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=46')
+            link='ZB28kpo0VTQ')
         Aulas.objects.create(
             id=47,
             titulo='Propriedades da Transformação Linear',
-            link='https://www.youtube.com/watch?v=xYAbFnh4Rco&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=47')
+            link='xYAbFnh4Rco')
         Aulas.objects.create(
             id=48,
             titulo='Propriedades da Transformação Linear',
-            link='https://www.youtube.com/watch?v=6EM6dBEGc-g&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=48')
+            link='6EM6dBEGc-g')
         Aulas.objects.create(
             id=49,
             titulo='Dada imagem, ache a Transformação Linear',
-            link='https://www.youtube.com/watch?v=aera-zZlBMs&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=49')
+            link='aera-zZlBMs')
         Aulas.objects.create(
             id=50,
             titulo='Como obter a lei de uma Transformação Linear',
-            link='https://www.youtube.com/watch?v=igvfXiYiwAY&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=50')
+            link='igvfXiYiwAY')
         Aulas.objects.create(
             id=51,
             titulo='Como obter a lei de uma Transformação Linear',
-            link='https://www.youtube.com/watch?v=inBnKDHEJ2s&list=PLE6qFDd4x9w_Q3Dsh6j2i6Q1IxSyvyTnC&index=51')
+            link='inBnKDHEJ2s')
