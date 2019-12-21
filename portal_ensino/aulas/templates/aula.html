@@ -3,26 +3,26 @@
 {% load static %}
 
 
-{% block title %} Atualizar Perfil {% endblock %}
+{% block title %} Aulas {% endblock %}
 
 {% block main %}
-    <div class="iframe-container">
-        <iframe width="560" height="315"
-                src="{{user.profile.aula_atual.link}}"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/{{user.profile.aula_atual.link}}" allowfullscreen>
         </iframe>
     </div>
-<br><br><br>
 
-{% if user.profile.aula_atual.material %}
-    <a href="{{ user.profile.aula_atual.material.url }}">Material</a>
+    <br>
+    <br>
+    <br>
+<!--{{user.profile.aula_atual.link}}-->
 
-<br><br><br>
-{{ user.profile.aula_atual.material }}
-<br>
-{{ user.profile.aula_atual.material.url }}
-{% endif %}
+    <a href="{% url 'aula_anterior' %}" class="btn btn-primary font-weight-bold">Aula anterior</a>
+    <a href="{% url 'proxima_aula' %}" class="btn btn-primary font-weight-bold">Próxima aula</a>
+
+    {% if user.profile.aula_atual.material %}
+        <a href="{{ user.profile.aula_atual.material.url }}" target="_blank" class="btn btn-primary font-weight-bold">Material</a>
+    {% endif %}
 
 
 {% endblock %}
