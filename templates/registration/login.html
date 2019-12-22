@@ -32,7 +32,7 @@
                     <div class="col-sm-10 input-group"> 
                         <input type="password" class="form-control" placeholder="Senha" id="password" name="password" aria-label="Senha" aria-describedby="show_password">
                         <div class="input-group-append">
-                            <span class="input-group-text bg-light" id="icon_spam"><i class="fa fa-eye-slash"  aria-hidden="true"  onclick="show_password()"></i></span>
+                            <span class="input-group-text bg-light" id="icon_spam"><i class="fa fa-eye-slash"  aria-hidden="true"></i></span>
                         </div>
                     </div>
                     <div class="col"><a href="{% url 'password_reset' %}" class="float-right small">Esqueci a senha</a></div>
@@ -55,24 +55,23 @@
         </div>
     </section>
 
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
-        function show_password() {
+        $('#icon_spam').on('click', function(e) {
+            $(this).find('i').toggleClass('fa-eye-slash fa-eye')
             var x = document.getElementById("password");
-            var icon_spam = document.getElementById("icon_spam")
             if (x.type === "password") {
                 x.type = "text";
-                icon_spam.innerHTML = '<i class="fa fa-eye-slash" aria-hidden="true"  onclick="show_password()"></i>'
             } else {
                 x.type = "password";
-                icon_spam.innerHTML ='<i class="fa fa-eye" aria-hidden="true"  onclick="show_password()"></i>'
             }
-        }
-    </script>
+        });
+    </script></body></html>
 {% endblock %}
 
 {% block footer %}
 
-    <footer class="card-footer fixed-bottom small">
+    <footer class="footer bottom small">
         Projeto de iniciação cientfica realizada pelos alunos da Computação <br>
         &copy; UNIPAC 2019
     </footer>
