@@ -12,7 +12,7 @@
             <spam class="navbar-brand title">Portal Unipac | {{ user.first_name }}</spam>
             <div class="navbar-brand">
                 <a href="{% url 'home' %}" class="badge badge-primary m-2 font-weight-bold float-left">Home</a>
-                <a href="{% url 'logout' %}" class="badge badge-success m-2 font-weight-bold float-left">Editar Perfil</a>
+                <a href="{% url 'atualizar_usuario' %}" class="badge badge-success m-2 font-weight-bold float-left">Editar Perfil</a>
                 <a href="{% url 'logout' %}" class="badge badge-danger m-2 font-weight-bold float-left">Sair</a>    
             </div>            
         </div>
@@ -58,6 +58,12 @@
                                 <div class="form-control mb-2" style="font-size: 0.95em">{{ user.profile.instituicao }}</div>
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-light mb-2" style="font-size: 0.9em" id="icon_spam"><i class="fas fa-university" style="color: lightseagreen"></i></span>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="form-control mb-2" style="font-size: 0.95em">{{ user.profile.aula_atual}}</div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text bg-light mb-2" style="font-size: 0.85em" id="icon_spam"><i class="fas fa-video" style="color: lightseagreen"></i></span>
                                 </div>
                             </div>
                         </div>
