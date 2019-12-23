@@ -102,6 +102,14 @@
                 
             </div>
         </nav>
+
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>
+            $("#dLabel").click(function(e) {
+                event.stopPropagation()
+            })
+        </script>
+
         <footer class="card-footer fixed-bottom small text-muted">
             Projeto de iniciação cientfica realizada pelos alunos da Computação <br>
             &copy; UNIPAC 2019
