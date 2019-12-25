@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from portal_ensino.usuarios.models import Profile
-from portal_ensino.aulas.models import Aulas
+from portal_ensino.aulas.models import Aulas, Questoes
 
 
 @login_required
@@ -32,3 +32,28 @@ def aula_anterior(request):
         usuario.save()
 
     return redirect('aula')
+
+
+def exercicio(request):
+    if request.method == 'POST':
+        if 'aplicar' in request.POST:
+            resposta = request.POST
+
+            questoes = Questoes.objects.all()
+            quantidade_de_questoes = len(questoes)
+            acertos = 0
+
+            for questao in questoes:
+                if questao.resposta_correta == resposta[str(questao.id)]:
+                    acertos += 1
+                    porcentagem_de_acertos = (acertos * 100) / quantidade_de_questoes
+
+                    if porcentagem_de_acertos > 60.0:
+                        print(f'acertos: {porcentagem_de_acertos:.2f}')
+                        print('aprovado!')
+                        return render(request, 'exercicios.html',{'questoes': questoes})
+
+            print(f'acertos: {porcentagem_de_acertos:.2f}')
+            print('reprovado')
+
+    return render(request, 'exercicios.html',{'questoes': questoes})
