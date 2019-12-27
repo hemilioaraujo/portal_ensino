@@ -227,6 +227,7 @@ class Questoes(models.Model):
     alt3 = models.TextField(blank=False, null=False)
     alt4 = models.TextField(blank=False, null=False)
     resposta_correta = models.TextField(blank=False, null=False)
+    aula_referente = models.ForeignKey(Aulas, default=None, blank=True, null=True, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Qugitestão"
