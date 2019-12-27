@@ -37,23 +37,32 @@ def aula_anterior(request):
 def exercicio(request):
     if request.method == 'POST':
         if 'aplicar' in request.POST:
+            print('flag')
             resposta = request.POST
+            print(resposta)
 
-            questoes = Questoes.objects.all()
+            questoes = Questoes.objects.filter(aula_referente=request.user.profile.aula_atual)
             quantidade_de_questoes = len(questoes)
             acertos = 0
 
             for questao in questoes:
+                # print('flag')
+                # print(resposta)
                 if questao.resposta_correta == resposta[str(questao.id)]:
+                    # print('flag')
                     acertos += 1
                     porcentagem_de_acertos = (acertos * 100) / quantidade_de_questoes
 
                     if porcentagem_de_acertos > 60.0:
+                        # print('flag')
                         print(f'acertos: {porcentagem_de_acertos:.2f}')
                         print('aprovado!')
-                        return render(request, 'exercicios.html',{'questoes': questoes})
+                        return redirect('proxima_aula')
+            return redirect('reprovado')
+    else:
+        questoes = Questoes.objects.filter(aula_referente=request.user.profile.aula_atual)
+        return render(request, 'exercicios.html',{'questoes': questoes})
 
-            print(f'acertos: {porcentagem_de_acertos:.2f}')
-            print('reprovado')
 
-    return render(request, 'exercicios.html',{'questoes': questoes})
+def reprovado(request):
+    return render(request, 'reprovado.html',{'usuario': request.user})
