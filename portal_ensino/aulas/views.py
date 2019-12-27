@@ -61,6 +61,10 @@ def exercicio(request):
             return redirect('reprovado')
     else:
         questoes = Questoes.objects.filter(aula_referente=request.user.profile.aula_atual)
+
+        if len(questoes) == 0:
+            return redirect('proxima_aula')
+
         return render(request, 'exercicios.html',{'questoes': questoes})
 
 
