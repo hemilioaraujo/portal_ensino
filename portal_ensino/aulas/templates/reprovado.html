@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% load static %}
+
+
+{% block title %} Aulas {% endblock %}
+
+{% block main %}
+<h1>REPROVADO! BURRO!</h1>
+
+<a href="{% url 'aula' %}" style="font-size: 0.8em" class=" ml-2">Aulas</a>
+
+{% endblock %}
+
+
+
+{% block footer %}
+    <footer class="mb-4 small">
+        Projeto de iniciação cientfica realizada pelos alunos da Computação <br>
+        &copy; UNIPAC 2019
+    </footer>
+{% endblock %}
