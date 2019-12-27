@@ -17,8 +17,8 @@
     <br>
 <!--{{user.profile.aula_atual.link}}-->
 
-    <a href="{% url 'aula_anterior' %}" class="btn btn-primary font-weight-bold">Aula anterior</a>
-    <a href="{% url 'proxima_aula' %}" class="btn btn-primary font-weight-bold">Próxima aula</a>
+    <a href="{% url 'aula_anterior' %}" class="btn btn-primary font-weight-bold">Voltar</a>
+    <a href="{% url 'exercicio' %}" class="btn btn-primary font-weight-bold">Avançar</a>
 
     {% if user.profile.aula_atual.material %}
         <a href="{{ user.profile.aula_atual.material.url }}" target="_blank" class="btn btn-primary font-weight-bold">Material</a>
