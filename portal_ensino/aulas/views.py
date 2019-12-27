@@ -34,6 +34,7 @@ def aula_anterior(request):
     return redirect('aula')
 
 
+@login_required
 def exercicio(request):
     if request.method == 'POST':
         if 'aplicar' in request.POST:
@@ -68,5 +69,6 @@ def exercicio(request):
         return render(request, 'exercicios.html',{'questoes': questoes})
 
 
+@login_required
 def reprovado(request):
     return render(request, 'reprovado.html',{'usuario': request.user})
