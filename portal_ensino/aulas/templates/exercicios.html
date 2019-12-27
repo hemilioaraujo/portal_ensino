@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MathJax TeX Test Page</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+</head>
+<body>
+
+<!--teste com equações-->
+<!--When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are-->
+<!--$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$-->
+
+<form method="POST">
+    {% csrf_token %}
+    {% for questao in questoes %}
+        <div class="container-row">
+            <p>{{ questao.questao }}</p>
+
+            <input type="radio" name="{{ questao.id }}" value="{{ questao.alt1 }}">{{ questao.alt1 }}<br>
+            <input type="radio" name="{{ questao.id }}" value="{{ questao.alt2 }}">{{ questao.alt2 }}<br>
+            <input type="radio" name="{{ questao.id }}" value="{{ questao.alt3 }}">{{ questao.alt3 }}<br>
+            <input type="radio" name="{{ questao.id }}" value="{{ questao.alt4 }}">{{ questao.alt4 }}<br>
+        </div>
+    {% endfor %}
+
+    <input type="submit" value="submit" name="aplicar">
+</form>
+
+
+
+
+
+</body>
+</html>
