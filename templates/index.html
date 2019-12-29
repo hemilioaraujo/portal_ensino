@@ -13,7 +13,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+        <link rel="stylesheet" href="{% static 'CSS/index.css' %}">
         <link rel="shortcut icon" href="{% static 'images/favicon.ico' type='image/x-icon' %}">
         <title>Home</title>
     </head>
@@ -109,6 +109,48 @@
             </div>
         </nav>
 
+        {% if user.is_authenticated %}
+            <div class="text-center m-5">
+                <h2 class="font-weight-bold font-italic">NUNCA FOI TÃO FÁCIL APRENDER MATEMÁTICA!</h2>
+                <a href="{% url 'aula' %}" class="btn btn-primary mt-5 mb-2 font-italic" onclick="comece()">
+                    <h3><i class="fas fa-play-circle"></i> COMECE JÁ</h3></a>
+            </div>
+        {% else %}
+            <div class="text-center mt-5 mb-5">
+                <h2 class="font-weight-bold font-italic">NUNCA FOI TÃO FÁCIL APRENDER MATEMÁTICA!</h2>
+                <a href="{% url 'login' %}" class="btn btn-primary font-italic">
+                    <h3><i class="fas fa-play-circle"></i> COMECE JÁ</h3></a>
+            </div>
+        {% endif %}
+
+        <div class="bg-primary p-4 rounded-top">
+            <div class="row">
+                <div class="col-lg-5 m-5 align-middle">
+                    <h1 class="font-weight-bold text-white">Geometria analítica</h1>
+
+                    <p class="text-justify">Este é um site desenvolvido com o intuito de ajudar pessoas com  dificuldade em matemática.
+                        Nele você verá vídeo-aulas que o ajudarão a entender da maneira mais fácil como funciona os conceitos de geometria analítica.</p>
+                </div>
+                <div class="col col-md">
+                    <img src="{% static 'images/computador.png' %}" class="computador capa" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+
+
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script>
             $("#dLabel").click(function(e) {
@@ -116,7 +158,7 @@
             })
         </script>
 
-        <footer class="card-footer fixed-bottom small text-muted">
+        <footer class="page-footer small text-muted pt-4 mb-2">
             Projeto de iniciação cientfica realizada pelos alunos da Computação <br>
             &copy; UNIPAC 2019
         </footer>
