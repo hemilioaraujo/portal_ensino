@@ -1,0 +1,89 @@
+body {
+    background: linear-gradient(to bottom,lightseagreen, white) no-repeat;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+    font-family: 'Patua One', cursive;
+    font-size: 1.33em;
+}
+
+.dropdown-bubble .dropdown-menu {
+    margin-top: 0em;
+  }
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-bubble .dropdown-menu:before,
+.dropdown-bubble .dropdown-menu:after{
+    content: ' ';
+    display: block;
+    border-style: solid;
+    border-width: 0 .5em .8em .5em;
+    border-color: transparent;
+    position: absolute;
+    left: 2em;
+}
+
+.dropdown-bubble .dropdown-menu:before {
+    top: -.8em;
+    border-bottom-color: rgba(0,0,0,0.5);
+}
+
+.dropdown-bubble .dropdown-menu:after {
+    top: -.7em;
+    border-bottom-color: #fff;
+}
+
+.dropdown-menu a {
+    color: gray;
+}
+
+.dropdown-menu a:hover {
+    color: lightseagreen;
+}
+
+header {
+    color: white;
+    text-align: center;
+    margin: 20px;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+
+.iframe-container{
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.iframe-container iframe{
+  position: absolute;
+  top:1%;
+  left: 0;
+  width: 100%;
+  height: 90%;
+}
+
+footer {
+    color: rgb(61, 61, 61)
+}
+
+#logo {
+    width: 10px;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
+
+.carousel {
+    width:640px;
+    height:360px;
+}
