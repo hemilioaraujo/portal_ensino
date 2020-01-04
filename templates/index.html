@@ -112,8 +112,12 @@
         {% if user.is_authenticated %}
             <div class="text-center m-5">
                 <h2 class="font-weight-bold font-italic">NUNCA FOI TÃO FÁCIL APRENDER MATEMÁTICA!</h2>
-                <a href="{% url 'aula' %}" class="btn btn-primary mt-5 mb-2 font-italic" onclick="comece()">
-                    <h3><i class="fas fa-play-circle"></i> COMECE JÁ</h3></a>
+                <a href="{% url 'aula' %}" class="btn btn-primary mt-5 mb-2 font-italic">
+                    {% if user.profile.aula_atual.id == 1 %}
+                        <h3><i class="fas fa-play-circle"></i> COMECE JÁ</h3></a>
+                    {% else %}
+                        <h3><i class="fas fa-play-circle"></i>  CONTINUE ESTUDANDO</h3></a>
+                    {% endif %}
             </div>
         {% else %}
             <div class="text-center mt-5 mb-5">
