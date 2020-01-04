@@ -230,7 +230,7 @@ class Questoes(models.Model):
     aula_referente = models.ForeignKey(Aulas, default=None, blank=True, null=True, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = "Qugitestão"
+        verbose_name = "Questão"
         verbose_name_plural = "Questões"
 
     def __str__(self):
