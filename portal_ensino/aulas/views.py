@@ -60,6 +60,11 @@ def exercicio(request):
                         print('aprovado!')
                         return redirect('proxima_aula')
             return redirect('reprovado')
+        else:
+            print('flag')
+            resposta = request.POST
+            print(resposta)
+            return redirect('aula')
     else:
         questoes = Questoes.objects.filter(aula_referente=request.user.profile.aula_atual)
 
