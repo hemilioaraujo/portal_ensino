@@ -15,7 +15,7 @@ Este projeto está sendo desenvolvido em **[Python]** utilizando o framework web
 #### Para instalar os requisitos, basta executar o comando:  
 
 ```shell
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 #### Popular a tabela das aulas:
