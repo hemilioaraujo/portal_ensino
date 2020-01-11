@@ -6,7 +6,7 @@
 {% block title %} Aulas {% endblock %}
 
 {% block main %}
-    <div class="embed-responsive embed-responsive-16by9">
+    <div class="embed-responsive embed-responsive-16by9 mw-5">
         <iframe class="embed-responsive-item"
                 src="https://www.youtube.com/embed/{{user.profile.aula_atual.link}}" allowfullscreen>
         </iframe>
@@ -17,8 +17,8 @@
     <br>
 <!--{{user.profile.aula_atual.link}}-->
 
-    <a href="{% url 'aula_anterior' %}" class="btn btn-primary font-weight-bold">Voltar</a>
-    <a href="{% url 'exercicio' %}" class="btn btn-primary font-weight-bold">Avançar</a>
+    <a href="{% url 'aula_anterior' %}" class="btn btn-secondary font-weight-bold">Voltar</a>
+    <a href="{% url 'exercicio' %}" class="btn btn-success font-weight-bold">Avançar</a>
 
     {% if user.profile.aula_atual.material %}
         <a href="{{ user.profile.aula_atual.material.url }}" target="_blank" class="btn btn-primary font-weight-bold">Material</a>
