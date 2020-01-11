@@ -14,13 +14,13 @@ Este projeto está sendo desenvolvido em **[Python]** utilizando o framework web
 
 #### Para instalar os requisitos, basta executar o comando:  
 
-```shell script
+```shell
     pip install -r requirements.txt
-```  
+```
 
 #### Popular a tabela das aulas:
 
-```shell script
+```shell
 python manage.py shell
 ```
 
