@@ -7,10 +7,10 @@ Este projeto está sendo desenvolvido em **[Python]** utilizando o framework web
 
 #### Requisitos:
 
-* Django==2.2.3
+* Django==2.2.8
 * django-bootstrap-form==3.4
 * python-decouple==3.1
-* Pillow==6.1.0
+* Pillow==6.2.0
 
 #### Para instalar os requisitos, basta executar o comando:  
 
