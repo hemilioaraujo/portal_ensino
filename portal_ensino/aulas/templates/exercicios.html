@@ -27,8 +27,19 @@
                             <h5><li>{{ questao.questao }}</li></h5>
 
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="{{ questao.alt1 }}{{ questao.id }}" name="{{ questao.id }}" value="{{ questao.alt1 }}">
-                                <label class="custom-control-label" for="{{ questao.alt1 }}{{ questao.id }}">{{ questao.alt1 }}</label>
+                                <input 
+                                    type="radio" 
+                                    class="custom-control-input" 
+                                    id="{{ questao.alt1 }}{{ questao.id }}" 
+                                    name="{{ questao.id }}" value="{{ questao.alt1 }}"
+                                    required="required"
+                                >
+
+                                <label 
+                                    class="custom-control-label" 
+                                    for="{{ questao.alt1 }}{{ questao.id }}">
+                                    {{ questao.alt1 }}
+                                </label>
                             </div>
                             
                             <div class="custom-control custom-radio">
