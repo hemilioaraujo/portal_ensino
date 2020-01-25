@@ -6,23 +6,90 @@
 {% block title %} Aulas {% endblock %}
 
 {% block main %}
-    <div class="embed-responsive embed-responsive-16by9 mw-5">
-        <iframe class="embed-responsive-item"
-                src="https://www.youtube.com/embed/{{user.profile.aula_atual.link}}" allowfullscreen>
-        </iframe>
-    </div>
+<header class="container-fluid">
 
-    <br>
-    <br>
-    <br>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <spam class="navbar-brand title">
+                <svg width="30" height="30" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="logo" filter="url(#filter0_d)">
+                    <circle id="Ellipse 2" cx="34.5" cy="30.5" r="30.5" fill="#26F2CD"/>
+                    <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="0" width="61" height="61">
+                    <circle id="Ellipse 3" cx="34.5" cy="30.5" r="30.5" fill="#26F2CD"/>
+                    </mask>
+                    <g mask="url(#mask0)">
+                    <path id="Vector 1" d="M-15 29.3005C-15 29.3005 4.51362 6.12435 34.9416 29.3005C65.3696 52.4767 70 29.3005 70 29.3005V75L-15 73.3679V29.3005Z" fill="#1DBACF"/>
+                    </g>
+                    </g>
+                    <defs>
+                    <filter id="filter0_d" x="0" y="0" width="69" height="69" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                    <feOffset dy="4"/>
+                    <feGaussianBlur stdDeviation="2"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                    </filter>
+                    </defs>
+                </svg>
+                <a href="{% url 'home' %}" style="text-decoration: none; color: white;">
+                    Portal Unipac
+                </a> 
+            </spam>
+
+            <!-- Collapse button -->
+            <button class="navbar-toggler btn btn-light bg-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""><i class="fas fa-bars"></i></span>
+            </button>
+            
+            <!-- Collapsible content -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+        
+                <!-- Links -->
+                <ul class="navbar-nav mr-auto" style="display: inline;">
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link m-2 font-weight-bold float-right text-danger m-2 mr-auto">Sair</a>    
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'atualizar_usuario' %}" class="nav-link font-weight-bold float-right text-light m-2">Editar Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link font-weight-bold float-right text-light m-2">Home</a>
+                </li>
+                </ul>
+                <!-- Links -->
+        
+            </div>
+        </div>
+      
+      </nav>
+</header>
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <div class="embed-responsive embed-responsive-16by9 mb-4">
+                <iframe class="embed-responsive-item"
+                        src="https://www.youtube.com/embed/{{user.profile.aula_atual.link}}" allowfullscreen>
+                </iframe>
+            </div>
+
+            <a href="{% url 'aula_anterior' %}" class="btn btn-secondary font-weight-bold">Voltar</a>
+            <a href="{% url 'exercicio' %}" class="btn btn-success font-weight-bold">Avançar</a>
+        
+            {% if user.profile.aula_atual.material %}
+                <a href="{{ user.profile.aula_atual.material.url }}" target="_blank" class="btn btn-primary font-weight-bold">Material</a>
+            {% endif %}
+        </div>
+    </div>
+    
+   
+
 <!--{{user.profile.aula_atual.link}}-->
 
-    <a href="{% url 'aula_anterior' %}" class="btn btn-secondary font-weight-bold">Voltar</a>
-    <a href="{% url 'exercicio' %}" class="btn btn-success font-weight-bold">Avançar</a>
-
-    {% if user.profile.aula_atual.material %}
-        <a href="{{ user.profile.aula_atual.material.url }}" target="_blank" class="btn btn-primary font-weight-bold">Material</a>
-    {% endif %}
+   
 
 
 {% endblock %}
