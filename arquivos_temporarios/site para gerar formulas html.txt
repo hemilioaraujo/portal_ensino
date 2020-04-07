@@ -1,0 +1,5 @@
+https://www.mathcha.io/editor
+
+usa este site para criar a fórmula, exporta ela em Latex/MathML
+seleciona MathML e copia o html gerado
+é só selecionar a fórmula no documento e fazer este procedimento anterior
