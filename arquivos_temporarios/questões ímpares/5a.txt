@@ -1,0 +1,155 @@
+Resolva o sistema por escalonamento:
+</br></br>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+  <mtable columnwidth="100%" width="100%" columnalign="center">
+    <mtr>
+      <mtd>
+        <mrow>
+          <mi></mi>
+          <mi></mi>
+          <mo form="infix"></mo>
+          <mrow>
+            <mo fence="true">{</mo>
+            <mtable columnalign="left left">
+              <mtr>
+                <mtd>
+                  <mrow>
+                    <mn>3</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>1</mn>
+                    </msub>
+                    <mo form="infix">+</mo>
+                    <mn>2</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>2</mn>
+                    </msub>
+                    <mo form="infix">-</mo>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>3</mn>
+                    </msub>
+                    <mo form="infix">=</mo>
+                    <mo form="infix">-</mo>
+                    <mn>15</mn>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mrow></mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow>
+                    <mn>5</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>1</mn>
+                    </msub>
+                    <mo form="infix">+</mo>
+                    <mn>3</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>2</mn>
+                    </msub>
+                    <mo form="infix">+</mo>
+                    <mn>2</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>3</mn>
+                    </msub>
+                    <mo form="infix">=</mo>
+                    <mn>0</mn>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mrow></mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow>
+                    <mn>3</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>1</mn>
+                    </msub>
+                    <mo form="infix">+</mo>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>2</mn>
+                    </msub>
+                    <mo form="infix">+</mo>
+                    <mn>3</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>3</mn>
+                    </msub>
+                    <mo form="infix">=</mo>
+                    <mn>11</mn>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mrow></mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mrow>
+                    <mo form="prefix">-</mo>
+                    <mn>6</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>1</mn>
+                    </msub>
+                    <mo form="infix">-</mo>
+                    <mn>4</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>2</mn>
+                    </msub>
+                    <mo form="infix">+</mo>
+                    <mn>2</mn>
+                    <msub>
+                      <mi>x</mi>
+                      <mn>3</mn>
+                    </msub>
+                    <mo form="infix">=</mo>
+                    <mn>30</mn>
+                  </mrow>
+                </mtd>
+                <mtd>
+                  <mrow></mrow>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd>
+        <mrow></mrow>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd>
+        <mrow></mrow>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd>
+        <mrow></mrow>
+      </mtd>
+    </mtr>
+  </mtable>
+</math>
+
+x1 = 1
+x1 = -3
+x1 = -1
+x1 = -4
+
+x1 = -4

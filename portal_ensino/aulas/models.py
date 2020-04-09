@@ -234,5 +234,5 @@ class Questoes(models.Model):
         verbose_name_plural = "Questões"
 
     def __str__(self):
-        return f'{self.questao} {self.resposta_correta}'
+        return f'Aula: {self.aula_referente} Resposta: {self.resposta_correta}'
 
