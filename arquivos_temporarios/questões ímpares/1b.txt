@@ -1,0 +1,8 @@
+Um sistema de equações pode ter:
+
+Exatamente uma solução.
+Infinitas uma solução.
+Nenhuma solução.
+Todas as anteriores estão corretas.
+
+Todas as anteriores estão corretas.

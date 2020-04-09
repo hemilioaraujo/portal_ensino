@@ -1,0 +1,92 @@
+Solucione o sistema:
+</br></br>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+        <mtable columnwidth="100%" width="100%" columnalign="center">
+            <mtr>
+                <mtd>
+                    <mrow>
+                        <mi></mi>
+                        <mi></mi>
+                        <mo form="infix"></mo>
+                        <mrow>
+                            <mo fence="true">{</mo>
+                            <mtable columnalign="left left">
+                                <mtr>
+                                    <mtd>
+                                        <mrow>
+                                            <mn>2</mn>
+                                            <msub>
+                                                <mi>x</mi>
+                                                <mn>1</mn>
+                                            </msub>
+                                            <mspace is="true" width="0.22em"></mspace>
+                                            <mo form="infix">+</mo>
+                                            <msub>
+                                                <mi>x</mi>
+                                                <mn>2</mn>
+                                            </msub>
+                                            <mspace is="true" width="0.22em"></mspace>
+                                            <mo form="infix">=</mo>
+                                            <mspace is="true" width="0.22em"></mspace>
+                                            <mn>4</mn>
+                                        </mrow>
+                                    </mtd>
+                                    <mtd>
+                                        <mrow></mrow>
+                                    </mtd>
+                                </mtr>
+                                <mtr>
+                                    <mtd>
+                                        <mrow>
+                                            <msub>
+                                                <mi>x</mi>
+                                                <mn>1</mn>
+                                            </msub>
+                                            <mspace is="true" width="0.22em"></mspace>
+                                            <mo form="infix">+</mo>
+                                            <mspace is="true" width="0.22em"></mspace>
+                                            <mn>3</mn>
+                                            <msub>
+                                                <mi>x</mi>
+                                                <mn>2</mn>
+                                            </msub>
+                                            <mspace is="true" width="0.22em"></mspace>
+                                            <mo form="infix">=</mo>
+                                            <mspace is="true" width="0.22em"></mspace>
+                                            <mn>7</mn>
+                                        </mrow>
+                                    </mtd>
+                                    <mtd>
+                                        <mrow></mrow>
+                                    </mtd>
+                                </mtr>
+                            </mtable>
+                            <mo fence="true" stretchy="true" symmetric="true"></mo>
+                        </mrow>
+                    </mrow>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd>
+                    <mrow></mrow>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd>
+                    <mrow></mrow>
+                </mtd>
+            </mtr>
+            <mtr>
+                <mtd>
+                    <mrow></mrow>
+                </mtd>
+            </mtr>
+        </mtable>
+    </math>
+
+x1 = 1 e x2 = 2
+x1 = 1 e x2 = 3
+x1 = 2 e x2 = 2
+x1 = 1 e x2 = 1
+
+x1 = 1 e x2 = 2
