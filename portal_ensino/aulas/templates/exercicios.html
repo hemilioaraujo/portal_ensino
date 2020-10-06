@@ -42,23 +42,23 @@
                                 <label 
                                     class="custom-control-label" 
                                     for="{{ questao.alt1 }}{{ questao.id }}">
-                                    {{ questao.alt1 }}
+                                    {{ questao.alt1 | safe}}
                                 </label>
                             </div>
                             
                             <div class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" id="{{ questao.alt2 }}{{ questao.id }}" name="{{ questao.id }}" value="{{ questao.alt2 }}">
-                                <label class="custom-control-label" for="{{ questao.alt2 }}{{ questao.id }}">{{ questao.alt2 }}</label>
+                                <label class="custom-control-label" for="{{ questao.alt2 }}{{ questao.id }}">{{ questao.alt2 | safe}}</label>
                             </div>
 
                             <div class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" id="{{ questao.alt3 }}{{ questao.id }}" name="{{ questao.id }}" value="{{ questao.alt3 }}">
-                                <label class="custom-control-label" for="{{ questao.alt3 }}{{ questao.id }}">{{ questao.alt3 }}</label>
+                                <label class="custom-control-label" for="{{ questao.alt3 }}{{ questao.id }}">{{ questao.alt3 | safe}}</label>
                             </div>
 
                             <div class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" id="{{ questao.alt4 }}{{ questao.id }}" name="{{ questao.id }}" value="{{ questao.alt4 }}">
-                                <label class="custom-control-label" for="{{ questao.alt4 }}{{ questao.id }}">{{ questao.alt4 }}</label>
+                                <label class="custom-control-label" for="{{ questao.alt4 }}{{ questao.id }}">{{ questao.alt4 | safe}}</label>
                             </div>
 
                             <div class="border-bottom mt-5 mb-2"></div>
