@@ -1,4 +1,5 @@
 # Ignora tudo neste diretório
-*
+aulas/
+fotos/
 # Exceto este arquivo
 !.gitignore
