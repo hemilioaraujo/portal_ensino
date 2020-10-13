@@ -39,7 +39,6 @@ class UserForm(UserCreationForm):
 
 
 class ProfileForm(ModelForm):
-
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
         self.fields["instituicao"].label = "Instituição:"
@@ -57,6 +56,10 @@ class ProfileForm(ModelForm):
             'bio',
             'foto'
         ]
+
+        widgets = {
+            'data_nascimento': forms.widgets.DateInput(attrs={'type': 'date'})
+        }
 
 
 class UserUpdateForm(ModelForm):
@@ -84,3 +87,7 @@ class ProfileUpdateForm(ModelForm):
             'bio',
             'foto'
         ]
+
+        widgets = {
+            'data_nascimento': forms.widgets.DateInput(attrs={'type': 'date'})
+        }
