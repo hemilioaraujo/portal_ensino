@@ -58,7 +58,7 @@ class ProfileForm(ModelForm):
         ]
 
         widgets = {
-            'data_nascimento': forms.widgets.DateInput(attrs={'type': 'date'})
+            'data_nascimento': forms.widgets.DateInput(format='%Y-%m-%d', attrs={'type': 'date'})
         }
 
 
@@ -89,5 +89,5 @@ class ProfileUpdateForm(ModelForm):
         ]
 
         widgets = {
-            'data_nascimento': forms.widgets.DateInput(attrs={'type': 'date'})
+            'data_nascimento': forms.widgets.DateInput(format='%Y-%m-%d', attrs={'type': 'date', 'class': 'biruleibe'})
         }
