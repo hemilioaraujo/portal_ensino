@@ -29,6 +29,17 @@
 
 
 
-<!--{{user.profile.aula_atual.link}}-->
+<h3>Comentários</h3>
+
+
+
+<ul>
+    {% for i in comentarios %}
+        <li>{{ i.id }}
+            {{ i.comentario }}
+            {{ i.user.first_name }}
+        </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
