@@ -7,11 +7,11 @@
 
 {% block main %}
 <div class="container">
-    <div class="container-fluid m-3">
+    <div class="container-fluid">
         <div class="jumbotron">
             <div class="embed-responsive embed-responsive-16by9 mb-4">
                 <iframe class="embed-responsive-item"
-                    src="https://www.youtube.com/embed/{{user.profile.aula_atual.link}}" allowfullscreen>
+                        src="https://www.youtube.com/embed/{{user.profile.aula_atual.link}}" allowfullscreen>
                 </iframe>
             </div>
 
@@ -20,26 +20,28 @@
 
             {% if user.profile.aula_atual.material %}
             <a href="{{ user.profile.aula_atual.material.url }}" target="_blank"
-                class="btn btn-primary font-weight-bold">Material</a>
+               class="btn btn-primary font-weight-bold">Material</a>
             {% endif %}
         </div>
     </div>
 
-</div>
 
 
 
-<h3>Comentários</h3>
 
+    <h3>Comentários</h3>
 
-
-<ul>
     {% for i in comentarios %}
-        <li>{{ i.id }}
+    <div class="media mb-2 bg-light rounded">
+        <img class="rounded align-self-center mr-2 ml-2" src="{{ i.user.profile.foto.url }}" alt="Foto {{ i.user.first_name }}" width="30px">
+        <div class="media-body">
+            <h6 class="mt-0 bg-gradient-secondary border-bottom border-gradient-secondary">{{ i.user.first_name }}</h6>
             {{ i.comentario }}
-            {{ i.user.first_name }}
-        </li>
+        </div>
+    </div>
+
     {% endfor %}
-</ul>
+
+</div>
 
 {% endblock %}
