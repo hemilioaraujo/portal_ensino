@@ -7,9 +7,17 @@ from portal_ensino.aulas.models import Aulas, Questoes, Comentarios
 
 @login_required
 def aula(request):
-    comentarios = Comentarios.objects.filter(aula_referente=request.user.profile.aula_atual.id).order_by('data')
 
-    return render(request, 'aula.html',{'usuario': request.user, 'comentarios': comentarios})
+    if request.method == 'POST':
+        if 'enviar' in request.POST:
+            resposta = request.POST
+            print(resposta)
+            return redirect('reprovado')
+        else:
+            return redirect('aula')
+    else:
+        comentarios = Comentarios.objects.filter(aula_referente=request.user.profile.aula_atual.id).order_by('data')
+        return render(request, 'aula.html',{'usuario': request.user, 'comentarios': comentarios})
 
 
 @login_required
