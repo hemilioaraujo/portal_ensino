@@ -40,8 +40,8 @@
     </div>
 
 
-    <div class="jumbotron p-2">
-        <h5 class="shadow text-center rounded">Comentários</h5>
+    <div class="container rounded bg-light p-2">
+        <h5 class="shadow text-center rounded mb-3">Comentários</h5>
         {% for i in comentarios %}
         <div class="media mb-2 bg-light rounded shadow">
             <img class="rounded align-self-center mr-2 ml-2" src="{{ i.user.profile.foto.url }}" alt="Foto {{ i.user.first_name }}" width="30px">
