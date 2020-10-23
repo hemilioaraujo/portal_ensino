@@ -7,12 +7,23 @@ from portal_ensino.aulas.models import Aulas, Questoes, Comentarios
 
 @login_required
 def aula(request):
-
     if request.method == 'POST':
         if 'enviar' in request.POST:
             resposta = request.POST
-            print(resposta)
-            return redirect('reprovado')
+            comentario = resposta['comentario']
+            usuario = User.objects.get(id=request.user.id)
+            aula_referente = Aulas.objects.get(id=request.user.profile.aula_atual.id)
+
+            try:
+                Comentarios.objects.create(
+                    comentario=comentario,
+                    aula_referente=aula_referente,
+                    user=usuario
+                )
+            except NameError:
+                print('erro ao postar comentário')
+
+            return redirect('aula')
         else:
             return redirect('aula')
     else:

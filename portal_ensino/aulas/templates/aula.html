@@ -25,10 +25,6 @@
         </div>
     </div>
 
-
-
-
-
     <h3>Comentários</h3>
 
     <div class="shadow p-3 mb-5 bg-light rounded">
@@ -36,7 +32,7 @@
             {% csrf_token %}
             <div class="form-group">
                 <label for="textComentario">Enviar Comentário:</label>
-                <textarea class="form-control" id="textComentario" rows="3" maxlength="500"></textarea>
+                <textarea class="form-control" id="textComentario" rows="3" name="comentario" maxlength="500"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
@@ -44,18 +40,11 @@
     </div>
 
 
-
-
-
-
-
-
-
     {% for i in comentarios %}
     <div class="media mb-2 bg-light rounded shadow">
         <img class="rounded align-self-center mr-2 ml-2" src="{{ i.user.profile.foto.url }}" alt="Foto {{ i.user.first_name }}" width="30px">
         <div class="media-body">
-            <h6 class="mt-0 bg-gradient-secondary border-bottom border-gradient-secondary">{{ i.user.first_name }} - {{ i.data }}</h6>
+            <h6 class="mt-0 bg-gradient-secondary border-bottom border-gradient-secondary" name="{{ i.id }}">{{ i.user.first_name }} - {{ i.data }}</h6>
             {{ i.comentario }}
         </div>
     </div>
