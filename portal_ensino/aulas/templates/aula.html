@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <h3>Comentários</h3>
+
 
     <div class="shadow p-3 mb-5 bg-light rounded">
         <form method="POST">
@@ -40,16 +40,20 @@
     </div>
 
 
-    {% for i in comentarios %}
-    <div class="media mb-2 bg-light rounded shadow">
-        <img class="rounded align-self-center mr-2 ml-2" src="{{ i.user.profile.foto.url }}" alt="Foto {{ i.user.first_name }}" width="30px">
-        <div class="media-body">
-            <h6 class="mt-0 bg-gradient-secondary border-bottom border-gradient-secondary" name="{{ i.id }}">{{ i.user.first_name }} - {{ i.data }}</h6>
-            {{ i.comentario }}
+    <div class="jumbotron p-2">
+        <h5 class="shadow text-center rounded">Comentários</h5>
+        {% for i in comentarios %}
+        <div class="media mb-2 bg-light rounded shadow">
+            <img class="rounded align-self-center mr-2 ml-2" src="{{ i.user.profile.foto.url }}" alt="Foto {{ i.user.first_name }}" width="30px">
+            <div class="media-body">
+                <h6 class="mt-0 bg-gradient-secondary border-bottom border-gradient-secondary" name="{{ i.id }}">{{ i.user.first_name }} - {{ i.data }}</h6>
+                {{ i.comentario }}
+            </div>
         </div>
+
+        {% endfor %}
     </div>
 
-    {% endfor %}
 
 </div>
 
