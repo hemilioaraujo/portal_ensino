@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def usuarios_list(request):
     usuarios = User.objects.all()
@@ -45,9 +46,9 @@ def do_login(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request,'Nome de usuário ou senha incorretos :(')
+            messages.error(request, 'Nome de usuário ou senha incorretos :(')
             return redirect('login')
-    
+
     return render(request, 'registration/login.html')
 
 

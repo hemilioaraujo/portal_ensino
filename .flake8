@@ -1,0 +1,6 @@
+[flake8]
+max-line-length = 120
+exclude =
+    .venv,
+    /home/hemilio/Documentos/REPOSITÓRIOS/portal_ensino/portal_ensino/usuarios/migrations/,
+    /home/hemilio/Documentos/REPOSITÓRIOS/portal_ensino/portal_ensino/aulas/migrations/

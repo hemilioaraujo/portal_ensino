@@ -28,7 +28,7 @@ def aula(request):
             return redirect('aula')
     else:
         comentarios = Comentarios.objects.filter(aula_referente=request.user.profile.aula_atual.id).order_by('data')
-        return render(request, 'aula.html',{'usuario': request.user, 'comentarios': comentarios})
+        return render(request, 'aula.html', {'usuario': request.user, 'comentarios': comentarios})
 
 
 @login_required
@@ -103,9 +103,9 @@ def exercicio(request):
         if len(questoes) == 0:
             return redirect('proxima_aula')
 
-        return render(request, 'exercicios.html',{'questoes': questoes})
+        return render(request, 'exercicios.html', {'questoes': questoes})
 
 
 @login_required
 def reprovado(request):
-    return render(request, 'reprovado.html',{'usuario': request.user})
+    return render(request, 'reprovado.html', {'usuario': request.user})

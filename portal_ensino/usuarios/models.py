@@ -28,8 +28,6 @@ def email_unico(value):
     exists = User.objects.filter(email=value)
     if exists:
         raise ValidationError(f'O e-mail {value} já está cadastrado!')
-        
-        
 # USAR COMO ARGUMENTO NOS FIELDS -> validators=[email_unico]
 '''
 
