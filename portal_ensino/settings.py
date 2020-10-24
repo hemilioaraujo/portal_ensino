@@ -115,7 +115,8 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# ALTERADO PARA FALSE POIS ESTAVA ADICIONANDO 3 HORAS A +
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

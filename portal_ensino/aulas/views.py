@@ -1,13 +1,45 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from portal_ensino.usuarios.models import Profile
-from portal_ensino.aulas.models import Aulas, Questoes
+from portal_ensino.aulas.models import Aulas, Questoes, Comentarios
 
 
 @login_required
 def aula(request):
-    return render(request, 'aula.html',{'usuario': request.user})
+    if request.method == 'POST':
+        if 'enviar' in request.POST:
+            resposta = request.POST
+            comentario = resposta['comentario']
+            usuario = User.objects.get(id=request.user.id)
+            aula_referente = Aulas.objects.get(id=request.user.profile.aula_atual.id)
+
+            try:
+                Comentarios.objects.create(
+                    comentario=comentario,
+                    aula_referente=aula_referente,
+                    user=usuario
+                )
+            except NameError:
+                print('erro ao postar comentário')
+
+            return redirect('aula')
+        else:
+            return redirect('aula')
+    else:
+        comentarios = Comentarios.objects.filter(aula_referente=request.user.profile.aula_atual.id).order_by('data')
+        return render(request, 'aula.html',{'usuario': request.user, 'comentarios': comentarios})
+
+
+@login_required
+def comentarios_delete(request, id):
+    comentario = get_object_or_404(Comentarios, pk=id)
+
+    if request.user.id == comentario.user.id:
+        comentario.delete()
+        return redirect('aula')
+    else:
+        return redirect('aula')
 
 
 @login_required
@@ -38,9 +70,9 @@ def aula_anterior(request):
 def exercicio(request):
     if request.method == 'POST':
         if 'aplicar' in request.POST:
-            print('flag')
+            # print('flag')
             resposta = request.POST
-            print(resposta)
+            # print(resposta)
 
             questoes = Questoes.objects.filter(aula_referente=request.user.profile.aula_atual)
             quantidade_de_questoes = len(questoes)
@@ -56,14 +88,14 @@ def exercicio(request):
 
                     if porcentagem_de_acertos > 60.0:
                         # print('flag')
-                        print(f'acertos: {porcentagem_de_acertos:.2f}')
-                        print('aprovado!')
+                        # print(f'acertos: {porcentagem_de_acertos:.2f}')
+                        # print('aprovado!')
                         return redirect('proxima_aula')
             return redirect('reprovado')
         else:
-            print('flag')
+            # print('flag')
             resposta = request.POST
-            print(resposta)
+            # print(resposta)
             return redirect('aula')
     else:
         questoes = Questoes.objects.filter(aula_referente=request.user.profile.aula_atual)
