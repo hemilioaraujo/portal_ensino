@@ -17,4 +17,4 @@ urlpatterns = [
     # redirecionapara app aulas
     path('aulas/', include(urls_aulas)),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # possibilita visualizar imagens dos profiles
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # possibilita visualizar imagens dos profiles

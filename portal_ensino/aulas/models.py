@@ -13,7 +13,6 @@ class Aulas(models.Model):
     def __str__(self):
         return f'{self.id} - {self.titulo}'
 
-
     def popular_tabela_aulas(self):
         Aulas.objects.create(
             id=1,
