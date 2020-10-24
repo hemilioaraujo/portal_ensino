@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from portal_ensino.usuarios.models import Profile
@@ -29,6 +29,17 @@ def aula(request):
     else:
         comentarios = Comentarios.objects.filter(aula_referente=request.user.profile.aula_atual.id).order_by('data')
         return render(request, 'aula.html',{'usuario': request.user, 'comentarios': comentarios})
+
+
+@login_required
+def comentarios_delete(request, id):
+    comentario = get_object_or_404(Comentarios, pk=id)
+
+    if request.user.id == comentario.user.id:
+        comentario.delete()
+        return redirect('aula')
+    else:
+        return redirect('aula')
 
 
 @login_required
