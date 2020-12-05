@@ -87,11 +87,11 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'portal_ensino',
+        'NAME': 'postgres',
         'USER': POSTGRESQL_USER,
         'PASSWORD': POSTGRESQL_PWD,
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5445',
     }
 }
 
