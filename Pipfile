@@ -21,6 +21,7 @@ virtualenv = "==20.0.27"
 virtualenv-clone = "==0.5.4"
 Django = "==2.2.10"
 Pillow = "==6.2.2"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"
