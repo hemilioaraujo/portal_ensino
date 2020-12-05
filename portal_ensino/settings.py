@@ -22,6 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
+POSTGRESQL_USER = config('POSTGRESQL_USER')
+POSTGRESQL_PWD = config('POSTGRESQL_PWD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,19 +86,12 @@ DATABASES = {
     # }
 
     'default': {
-
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
         'NAME': 'portal_ensino',
-
-        'USER': 'hemilio',
-
-        'PASSWORD': 'H13l09a88M',
-
+        'USER': POSTGRESQL_USER,
+        'PASSWORD': POSTGRESQL_PWD,
         'HOST': 'localhost',
-
         'PORT': '5432',
-
     }
 }
 
