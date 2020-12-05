@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='profile',
             name='data_nascimento',
-            field=models.DateField(default='AAAA-MM-DD'),
+            field=models.DateField(),
         ),
         migrations.AlterField(
             model_name='profile',
