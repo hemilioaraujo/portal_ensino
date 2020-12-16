@@ -36,7 +36,7 @@ def email_unico(value):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     instituicao = models.CharField(max_length=30, default='UNIPAC')
-    data_nascimento = models.DateField(default='13-09-1988')
+    data_nascimento = models.DateField()
     bio = models.TextField(blank=True)
     foto = models.ImageField(upload_to=renomear_imagem, default='fotos/profile/default.jpeg', null=True, blank=True)
     aula_atual = models.ForeignKey(Aulas, default=1, on_delete=models.CASCADE)
