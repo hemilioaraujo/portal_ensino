@@ -4,7 +4,7 @@ body {
 
 .title {
     font-family: 'Patua One', cursive;
-    font-size: 1em;
+    font-size: 1.33em;
 }
 
 .dropdown-bubble .dropdown-menu {
@@ -86,4 +86,4 @@ footer {
 
 i {
     font-family: fontawesome !important;
-    }   
+}
