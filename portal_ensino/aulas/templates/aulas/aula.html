@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+{#{% load bootstrap %}#}
+{% load static %}
+
+{% block title %} Aulas {% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <div class="embed-responsive embed-responsive-16by9 mb-4">
+                <iframe class="embed-responsive-item"
+                        src="https://www.youtube.com/embed/{{user.aula_atual.link}}" allowfullscreen>
+                </iframe>
+            </div>
+
+            <a href="{% url 'base:aula_anterior' %}" class="btn btn-secondary font-weight-bold">Voltar</a>
+            <a href="{% url 'base:exercicio' %}" class="btn btn-success font-weight-bold">Avançar</a>
+
+            {% if user.aula_atual.material %}
+            <a href="{{ user.aula_atual.material.url }}" target="_blank"
+               class="btn btn-primary font-weight-bold">Material</a>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+    <div class="shadow p-3 mb-5 bg-light rounded">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="textComentario">Enviar Comentário:</label>
+                <textarea class="form-control" id="textComentario" rows="3" name="comentario" maxlength="500"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
+        </form>
+    </div>
+
+
+    <div class="container rounded bg-light p-2">
+        <h5 class="shadow text-center rounded mb-3">Comentários</h5>
+        {% for i in comentarios %}
+            <div class="media mb-2 bg-light rounded shadow">
+                <img class="rounded align-self-center mr-2 ml-2" src="{{ i.user.foto.url }}" alt="Foto {{ i.user.first_name }}" width="30px">
+                <div class="media-body">
+                    <h6 class="mt-0 bg-gradient-secondary border-bottom border-gradient-secondary" name="{{ i.id }}">{{ i.user.first_name }} - {{ i.data }}</h6>
+                    {% if user.id == i.user.id %}
+                        <a href="{% url 'base:deletar_comentario' i.id %}" class="float-right" name="excluir" style="max-width: 18rem;">
+                            <span class="input-group-text bg-light m-2" style="font-size: 0.9em" id="icon_spam"><i class="fas fa-trash" style="color: lightseagreen"></i></span>
+                        </a>
+                    {% endif %}
+
+                    {{ i.comentario }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

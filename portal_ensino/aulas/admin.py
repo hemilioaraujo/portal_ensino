@@ -1,7 +1,6 @@
 from django.contrib import admin
-from .models import Aulas, Questoes, Comentarios
 
 # Register your models here.
+from portal_ensino.aulas.models import Aulas
+
 admin.site.register(Aulas)
-admin.site.register(Questoes)
-admin.site.register(Comentarios)

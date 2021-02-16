@@ -1,0 +1,7 @@
+# Criar imagem com postgresql
+
+docker run -d --name portal_ensino_db -p 5445:5432 -e POSTGRES_USER=hemilio -e POSTGRES_PASSWORD=H13l09a88M postgres
+
+
+docker run -d --name portal_ensino_db -p 5445:5432 -e POSTGRES_USER=hemilio -e POSTGRES_PASSWORD=H13l09a88M postgres
+

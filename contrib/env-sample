@@ -1,0 +1,6 @@
+DEBUG=False
+SECRET_KEY='n4glls&_o!*7z(=6^7ynbp2)9y9q_5i!@4u2^sdk=j__8#zpc^'
+ALLOWED_HOSTS=localhost, 127.0.0.1
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_STORAGE_BUCKET_NAME=

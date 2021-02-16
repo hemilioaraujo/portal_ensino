@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %} Atualizar Perfil {% endblock %}
+
+{% block main %}
+
+<section class="row m-3">
+    <div class="col">
+
+    </div>
+
+    <div class="col-9 col-sm-8 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+        <div>
+            <form action="{% url 'base:atualizar_usuario' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ update_user_form.as_p }}
+                <div class="card border-danger mb-3">
+                    <div class="card-header text-danger">Excluir usuário</div>
+                    <div class="card-body">
+                        <p class="card-text text-left">Depois que você excluir, não haverá retorno. Por favor, esteja
+                            certo.</p>
+                        <a href="{% url 'base:deletar_usuario' user.id %}" class="btn btn-danger float-right"
+                            style="max-width: 18rem;">Excluir</a>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-success" name="save" value="Salvar e sair" />
+                <button type="submit" class="btn btn-primary" name="atualizar">Atualizar</button>
+                <input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate />
+            </form>
+        </div>
+    </div>
+
+    <div class="col">
+
+    </div>
+</section>
+
+{% endblock %}

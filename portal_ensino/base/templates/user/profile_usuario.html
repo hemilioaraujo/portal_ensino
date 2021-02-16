@@ -1,0 +1,125 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %} Profile {% endblock %}
+
+{% block main %}
+<section class="row m-3">
+    <div class="col">
+
+    </div>
+
+    <div class="col-9 col-sm-8 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+        <div class="text-center">
+            {% if user.foto %}
+            <img src="{{ user.foto.url }}" class="rounded-circle" height="200px" width="200px"
+                alt="Foto de Perfil">
+            <div class="font-weight-bold" style="font-size: 2em">{{ user.first_name }} {{ user.last_name }}</div>
+            <blockquote class="blockquote text-center" style="font-size: 0.9em">{{ user.bio }}</blockquote>
+
+            <div class="row">
+                <div class="col">
+
+                </div>
+
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <div class="form-control mb-2" style="font-size: 0.95em">@{{ user.username }}</div>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-light mb-2" id="icon_spam"><i class="fas fa-user"
+                                    style="color: #0275d8"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="form-control mb-2" style="font-size: 0.95em">{{ user.data_nascimento }}
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-light mb-2" id="icon_spam"><i class="fas fa-birthday-cake"
+                                    style="color: #0275d8"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="form-control mb-2" style="font-size: 0.95em">{{ user.email }}</div>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-light mb-2" style="font-size: 0.9em" id="icon_spam"><i
+                                    class="fas fa-envelope" style="color: #0275d8"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="form-control mb-2" style="font-size: 0.95em">{{ user.instituicao }}</div>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-light mb-2" style="font-size: 0.9em" id="icon_spam"><i
+                                    class="fas fa-university" style="color: #0275d8"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="form-control mb-2" style="font-size: 0.95em">{{ user.aula_atual}}</div>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-light mb-2" style="font-size: 0.85em" id="icon_spam"><i
+                                    class="fas fa-video" style="color: #0275d8"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+
+                </div>
+            </div>
+            {% else %}
+            <img src="/media/fotos/profile/default.jpeg" class="rounded-circle" height="200px" width="200px"
+                alt="Foto de perfil">
+            <div class="font-weight-bold" style="font-size: 2em">{{ user.first_name }} {{ user.last_name }}</div>
+            <blockquote class="blockquote text-center" style="font-size: 0.9em">{{ user.bio }}</blockquote>
+
+            <div class="row">
+                <div class="col">
+
+                </div>
+
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <div class="form-control mb-2" style="font-size: 0.95em">@{{ user.username }}</div>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-light mb-2" id="icon_spam"><i class="fas fa-user"
+                                    style="color: lightseagreen"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="form-control mb-2" style="font-size: 0.95em">{{ user.data_nascimento }}
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-light mb-2" id="icon_spam"><i class="fas fa-birthday-cake"
+                                    style="color: lightseagreen"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="form-control mb-2" style="font-size: 0.95em">{{ user.email }}</div>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-light mb-2" style="font-size: 0.9em" id="icon_spam"><i
+                                    class="fas fa-envelope" style="color: lightseagreen"></i></span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="form-control mb-2" style="font-size: 0.95em">{{ user.instituicao }}</div>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-light mb-2" style="font-size: 0.9em" id="icon_spam"><i
+                                    class="fas fa-university" style="color: lightseagreen"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <div class="col">
+
+    </div>
+</section>
+
+{% endblock %}

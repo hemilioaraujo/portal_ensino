@@ -1,7 +1,7 @@
-from django.contrib.auth.models import User
 from django.db import models
 
 
+# Create your models here.
 class Aulas(models.Model):
     titulo = models.TextField(blank=False, null=False)
     link = models.TextField(blank=False, null=False)
@@ -218,34 +218,3 @@ class Aulas(models.Model):
             id=51,
             titulo='Como obter a lei de uma Transformação Linear',
             link='inBnKDHEJ2s')
-
-
-class Questoes(models.Model):
-    questao = models.TextField(blank=False, null=False)
-    alt1 = models.TextField(blank=False, null=False)
-    alt2 = models.TextField(blank=False, null=False)
-    alt3 = models.TextField(blank=False, null=False)
-    alt4 = models.TextField(blank=False, null=False)
-    resposta_correta = models.TextField(blank=False, null=False)
-    aula_referente = models.ForeignKey(Aulas, default=None, blank=True, null=True, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = "Questão"
-        verbose_name_plural = "Questões"
-
-    def __str__(self):
-        return f'Aula: {self.aula_referente} Resposta: {self.resposta_correta}'
-
-
-class Comentarios(models.Model):
-    aula_referente = models.ForeignKey(Aulas, default=None, blank=False, null=False, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, default=None, blank=False, null=False, on_delete=models.CASCADE)
-    comentario = models.TextField(default=None, blank=False, null=False)
-    data = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = "Comentário"
-        verbose_name_plural = "Comentários"
-
-    def __str__(self):
-        return f'Aula: {self.aula_referente.id} User: {self.user} Comentário: {self.data}'

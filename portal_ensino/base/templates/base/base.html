@@ -1,0 +1,149 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+		  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patua+One&display=swap">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<link rel="shortcut icon" href="{% static 'images/favicon.ico' type='image/x-icon' %}">
+	<title>{% block title %}{% endblock %}</title>
+</head>
+
+<body class="bg-light">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark navbar-expand-sm">
+	<div class="container-fluid">
+		{% if user.is_authenticated %}
+			<spam class="navbar-brand title">
+				<svg width="30" height="30" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g id="logo" filter="url(#filter0_d)">
+						<circle id="Ellipse 2" cx="34.5" cy="30.5" r="30.5" fill="#26F2CD"/>
+						<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="0" width="61"
+							  height="61">
+							<circle id="Ellipse 3" cx="34.5" cy="30.5" r="30.5" fill="#26F2CD"/>
+						</mask>
+						<g mask="url(#mask0)">
+							<path id="Vector 1"
+								  d="M-15 29.3005C-15 29.3005 4.51362 6.12435 34.9416 29.3005C65.3696 52.4767 70 29.3005 70 29.3005V75L-15 73.3679V29.3005Z"
+								  fill="#1DBACF"/>
+						</g>
+					</g>
+					<defs>
+						<filter id="filter0_d" x="0" y="0" width="69" height="69" filterUnits="userSpaceOnUse"
+								color-interpolation-filters="sRGB">
+							<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+							<feColorMatrix in="SourceAlpha" type="matrix"
+										   values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+							<feOffset dy="4"/>
+							<feGaussianBlur stdDeviation="2"/>
+							<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+							<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+							<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+						</filter>
+					</defs>
+				</svg>
+				<a href="{% url 'base:home' %}" style="text-decoration: none; color: white;">
+					Portal Unipac
+				</a>
+			</spam>
+
+			<div class="navbar-brand dropdown dropdown-bubble">
+
+				{% if user.foto %}
+					<a href="{% url 'base:atualizar_usuario' %}"><img src="{{ user.foto.url }}"
+																	  class="rounded-circle"
+																	  height="30px" width="30px"
+																	  alt="Profile Image"></a>
+				{% else %}
+					<a href="{% url 'base:atualizar_usuario' %}"><img src="/media/fotos/profile/default.jpeg"
+																	  class="rounded-circle" height="30px" width="30px"
+																	  alt="Profile Image"></a>
+				{% endif %}
+
+				<a class="navbar-brand title dropdown-toggle" id="dLabel" style="font-size: 1em" data-toggle="dropdown"
+				   href="#" role="button" aria-haspopup="true" aria-expanded="false">Olá {{ user.username }}</a>
+				<ul class="dropdown-menu" aria-labelledby="dLabel">
+					<li class="ml-2 font-weight-bold" style="font-size: 0.9em">Sua conta</li>
+					<li><a href="{% url 'base:exibir_profile' %}" style="font-size: 0.8em" class=" ml-2">Vizualizar
+						perfil</a></li>
+					<li><a href="{% url 'base:atualizar_usuario' %}" style="font-size: 0.8em" class=" ml-2">Alterar
+						dados</a>
+					</li>
+					<li><a href="{% url 'base:aula' %}" style="font-size: 0.8em" class=" ml-2">Aulas</a></li>
+					<div class="dropdown-divider"></div>
+					<li><a href="{% url 'base:sobre' %}" style="font-size: 0.8em" class=" ml-2">Sobre o projeto</a></li>
+					<li><a href="{% url 'base:logout' %}" style="font-size: 0.8em" class=" ml-2">Sair da conta</a></li>
+				</ul>
+			</div>
+		{% else %}
+			<spam class="navbar-brand title">
+				<svg width="30" height="30" viewBox="0 0 69 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g id="logo" filter="url(#filter0_d)">
+						<circle id="Ellipse 2" cx="34.5" cy="30.5" r="30.5" fill="#26F2CD"/>
+						<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="0" width="61"
+							  height="61">
+							<circle id="Ellipse 3" cx="34.5" cy="30.5" r="30.5" fill="#26F2CD"/>
+						</mask>
+						<g mask="url(#mask0)">
+							<path id="Vector 1"
+								  d="M-15 29.3005C-15 29.3005 4.51362 6.12435 34.9416 29.3005C65.3696 52.4767 70 29.3005 70 29.3005V75L-15 73.3679V29.3005Z"
+								  fill="#1DBACF"/>
+						</g>
+					</g>
+					<defs>
+						<filter id="filter0_d" x="0" y="0" width="69" height="69" filterUnits="userSpaceOnUse"
+								color-interpolation-filters="sRGB">
+							<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+							<feColorMatrix in="SourceAlpha" type="matrix"
+										   values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+							<feOffset dy="4"/>
+							<feGaussianBlur stdDeviation="2"/>
+							<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+							<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+							<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+						</filter>
+					</defs>
+				</svg>
+				<a href="{% url 'base:home' %}" style="text-decoration: none; color: white;">
+					Portal Unipac
+				</a>
+			</spam>
+
+			<div class="navbar-brand">
+				<a href="{% url 'base:login' %}" style="font-size: 0.88em"
+				   class="border btn btn-primary font-weight-bold">Entre</a>
+				<a href="{% url 'base:novo_usuario' %}" style="font-size: 0.88em"
+				   class=" border btn btn-success font-weight-bold">Cadastre-se</a>
+			</div>
+		{% endif %}
+
+	</div>
+</nav>
+
+{% block main %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+<footer class="page-footer small text-muted pt-4 mb-2">
+	Projeto de iniciação cientfica realizada pelos alunos da Computação <br>
+	&copy; UNIPAC 2019
+</footer>
+</body>
+
+</html>
