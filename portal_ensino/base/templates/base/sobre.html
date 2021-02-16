@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %} Sobre o projeto {% endblock %}
+
+{% block main %}
+
+<!-- CONTEÚDO -->
+
+<div class="row justify-content-md-center m-3" align="center">
+    <div class="col-md-auto">
+        <h1>Sobre</h1>
+        <p>
+            Este portal foi iniciado como projeto de iniciação científica <br>
+            e posteriormente utilizado como trabalho de conclusão de curso <br>
+            na <b>Universidade Presidente Antônio Carlos</b> no ano de 2020. <br>
+        </p>
+    </div>
+</div>
+<div class="row justify-content-md-center m-3" align="center">
+    <div class="col-md-auto">
+        <h1>Agradecimentos</h1>
+        <p>
+            Quero deixar aqui meu agradecimento ao meu amigo <b>Matheus Barbosa</b>, <br>
+            que me auxiliou com a parte de front-end e ao <b>Professor Grings</b> <br>
+            que atendeu prontamente meu pedido para utilizar sua playlist <br>
+            sobre Álgebra Linear.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class=" col-md-4" align="center">
+        <img class="rounded-circle" src="{% static 'images/matheus.png' %}" alt="Foto Matheus" width="100" height="100">
+        <p><a class="btn" href="https://github.com/WhoisBsa"><i class="fab fa-github fa-1x">Github
+                    Matheus</i></a></p>
+    </div>
+
+    <div class="col-md-4" align="center">
+        <img class="rounded-circle" src="{% static 'images/grings.png' %}" alt="Foto Grings" width="100" height="100">
+        <p><a class="btn" href="https://omatematico.com/"><i class="fas fa-globe-americas fa-1x">Professor
+                    Grings</i></a></p>
+    </div>
+
+
+    <div class="col-md-4" align="center">
+        <img class="rounded-circle" src="{% static 'images/unipac.png' %}" alt="Logo UNIPAC" width="100" height="100">
+        <p><a class="btn" href="https://www.unipac.br/"><i class="fas fa-university fa-1x">UNIPAC</i></a></p>
+    </div>
+</div>
+{% endblock %}

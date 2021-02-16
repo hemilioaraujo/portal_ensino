@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %} Aulas {% endblock %}
+
+{% block main %}
+<section class="row">
+    <div class="col">
+
+    </div>
+
+    <div class="col-10 col-sm-9 col-md-7 col-lg-5 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+        <h1 class="text-center carde alert-danger p-4">Você não atingiu a meta de 60% :(</h1>
+
+        <a href="{% url 'base:aula' %}" class="btn btn-success w-100 mb-2">Rever Aula {{ user.aula_atual }}</a>
+        <a href="{% url 'base:exercicio' %}" class="btn btn-primary w-100">Refazer Exercicios</a>
+    </div>
+
+    <div class="col">
+
+    </div>
+</section>
+
+{% endblock %}

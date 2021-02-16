@@ -1,10 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
+{% extends 'base/base.html' %}
 
-</body>
-</html>
+{% block title %} Login {% endblock %}
+
+{% block main %}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<header>
+	<h1>Portal Unipac</h1>
+	<h2>Exercícios - Aula {{user.aula_atual.id}}</h2>
+</header>
+
+<section class="row">
+	<div class="col">
+
+	</div>
+
+	<div class="col-10 col-sm-9 col-md-7 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+		<form method="POST">
+			<ol class="container">
+				{% csrf_token %}
+				{% for questao in questoes %}
+				<div class="container">
+					<h5>
+						<li>{{ questao.questao | safe }}</li>
+					</h5>
+
+					<div class="custom-control custom-radio">
+						<input type="radio" class="custom-control-input" id="{{ questao.alt1 }}{{ questao.id }}"
+							name="{{ questao.id }}" value="{{ questao.alt1 }}" required="required">
+
+						<label class="custom-control-label" for="{{ questao.alt1 }}{{ questao.id }}">
+							{{ questao.alt1 | safe}}
+						</label>
+					</div>
+
+					<div class="custom-control custom-radio">
+						<input type="radio" class="custom-control-input" id="{{ questao.alt2 }}{{ questao.id }}"
+							name="{{ questao.id }}" value="{{ questao.alt2 }}">
+						<label class="custom-control-label"
+							for="{{ questao.alt2 }}{{ questao.id }}">{{ questao.alt2 | safe}}</label>
+					</div>
+
+					<div class="custom-control custom-radio">
+						<input type="radio" class="custom-control-input" id="{{ questao.alt3 }}{{ questao.id }}"
+							name="{{ questao.id }}" value="{{ questao.alt3 }}">
+						<label class="custom-control-label"
+							for="{{ questao.alt3 }}{{ questao.id }}">{{ questao.alt3 | safe}}</label>
+					</div>
+
+					<div class="custom-control custom-radio">
+						<input type="radio" class="custom-control-input" id="{{ questao.alt4 }}{{ questao.id }}"
+							name="{{ questao.id }}" value="{{ questao.alt4 }}">
+						<label class="custom-control-label"
+							for="{{ questao.alt4 }}{{ questao.id }}">{{ questao.alt4 | safe}}</label>
+					</div>
+
+					<div class="border-bottom mt-5 mb-2"></div>
+				</div>
+				{% endfor %}
+				<div class="container">
+					<input type="submit" class="btn btn-success mt-5" value="CONCLUÍDO" name="aplicar">
+					<a href="{% url 'base:aula' %}" class="btn btn-secondary mt-5">CANCELAR</a>
+				</div>
+			</ol>
+		</form>
+	</div>
+
+	<div class="col">
+
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %} Portal - Cadastro {% endblock %}
+
+{% block main %}
+<header>
+    <h1>CADASTRE-SE</h1>
+</header>
+<section class="row">
+        <div class="col">
+
+        </div>
+        
+        <div class="col-9 col-sm-7 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+            <div>
+                <form action="{% url 'base:novo_usuario' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form_user.as_p }}
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate/>
+                </form>
+            </div>
+        </div>
+        
+        <div class="col">
+
+        </div>
+</section>
+    
+{% endblock %}
