@@ -5,35 +5,109 @@
 
 {% block main %}
 
-<section class="row m-3">
-    <div class="col">
+	<section class="row m-3">
+		<div class="col">
 
-    </div>
+		</div>
 
-    <div class="col-9 col-sm-8 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
-        <div>
-            <form action="{% url 'base:atualizar_usuario' %}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ update_user_form.as_p }}
-                <div class="card border-danger mb-3">
-                    <div class="card-header text-danger">Excluir usuário</div>
-                    <div class="card-body">
-                        <p class="card-text text-left">Depois que você excluir, não haverá retorno. Por favor, esteja
-                            certo.</p>
-                        <a href="{% url 'base:deletar_usuario' user.id %}" class="btn btn-danger float-right"
-                            style="max-width: 18rem;">Excluir</a>
-                    </div>
-                </div>
-                <input type="submit" class="btn btn-success" name="save" value="Salvar e sair" />
-                <button type="submit" class="btn btn-primary" name="atualizar">Atualizar</button>
-                <input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate />
-            </form>
-        </div>
-    </div>
+		<div class="col-9 col-sm-8 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+			<div>
+				<form action="{% url 'base:atualizar_usuario' %}" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+{#					{{ update_user_form.as_p }}#}
 
-    <div class="col">
+					{#username#}
+					<div class="form-group">
+						<label for="input_username" class="col-sm-10 col-form-label">Usuário:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_username" name="username"
+								   placeholder="Nome de usuário" value="{{ user.username }}" required>
+						</div>
+					</div>
 
-    </div>
-</section>
+					{#first_name#}
+					<div class="form-group">
+						<label for="input_first_name" class="col-sm-10 col-form-label">Nome:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_first_name" name="first_name"
+								   placeholder="Nome" value="{{ user.first_name }}">
+						</div>
+					</div>
+
+					{#last_name#}
+					<div class="form-group">
+						<label for="input_last_name" class="col-sm-10 col-form-label">Sobrenome:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_last_name" name="last_name"
+								   placeholder="Sobrenome" value="{{ user.last_name }}">
+						</div>
+					</div>
+
+					{#email#}
+					<div class="form-group">
+						<label for="input_email" class="col-sm-10 col-form-label">Email:</label>
+						<div class="col-sm">
+							<input type="email" class="form-control" id="input_email" name="email"
+								   placeholder="Email" value="{{ user.email }}">
+						</div>
+					</div>
+
+					{#bio#}
+					<div class="form-group">
+						<label for="input_bio" class="col-sm-10 col-form-label">Bio:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_bio" name="bio"
+								   placeholder="Bio" value="{{ user.bio }}">
+						</div>
+					</div>
+
+					{#instituicao#}
+					<div class="form-group">
+						<label for="input_instituicao" class="col-sm-10 col-form-label">Instituicao:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_instituicao" name="instituicao"
+								   placeholder="Instituicao" value="{{ user.instituicao }}">
+						</div>
+					</div>
+
+					{#data_nascimento#}
+					<div class="form-group">
+						<label for="input_data_nascimento" class="col-sm-10 col-form-label">Data nascimento:</label>
+						<div class="col-sm">
+							<input type="date" class="form-control" id="input_data_nascimento" name="data_nascimento"
+							value="{{ user.data_nascimento|date:"Y-m-d" }}">
+						</div>
+					</div>
+
+					{#foto#}
+					<div class="form-group">
+						<label for="input_foto" class="col-sm-10 col-form-label">Foto:</label>
+						<div class="col-sm">
+							<input type="file" class="" id="input_foto" name="foto">
+						</div>
+					</div>
+
+
+					<div class="card border-danger mb-3">
+						<div class="card-header text-danger">Excluir usuário</div>
+						<div class="card-body">
+							<p class="card-text text-left">Depois que você excluir, não haverá retorno. Por favor,
+								esteja
+								certo.</p>
+							<a href="{% url 'base:deletar_usuario' user.id %}" class="btn btn-danger float-right"
+							   style="max-width: 18rem;">Excluir</a>
+						</div>
+					</div>
+					<input type="submit" class="btn btn-success" name="save" value="Salvar e sair"/>
+					<button type="submit" class="btn btn-primary" name="atualizar">Atualizar</button>
+					<input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate/>
+				</form>
+			</div>
+		</div>
+
+		<div class="col">
+
+		</div>
+	</section>
 
 {% endblock %}
