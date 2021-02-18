@@ -4,28 +4,115 @@
 {% block title %} Portal - Cadastro {% endblock %}
 
 {% block main %}
-<header>
-    <h1>CADASTRE-SE</h1>
-</header>
-<section class="row">
-        <div class="col">
+	<header>
+		<h1>CADASTRE-SE</h1>
+	</header>
+	<section class="row">
+		<div class="col">
 
-        </div>
-        
-        <div class="col-9 col-sm-7 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
-            <div>
-                <form action="{% url 'base:novo_usuario' %}" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form_user.as_p }}
-                    <button type="submit" class="btn btn-success">Salvar</button>
-                    <input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate/>
-                </form>
-            </div>
-        </div>
-        
-        <div class="col">
+		</div>
 
-        </div>
-</section>
-    
+		<div class="col-9 col-sm-7 col-lg-6 text-justify shadow p-3 mb-5 bg-white rounded align-center">
+			<div>
+				<form action="{% url 'base:novo_usuario' %}" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					{#username#}
+					<div class="form-group">
+						<label for="input_username" class="col-sm-10 col-form-label">Usuário:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_username" name="username"
+								   placeholder="Nome de usuário" required>
+						</div>
+					</div>
+
+					{#first_name#}
+					<div class="form-group">
+						<label for="input_first_name" class="col-sm-10 col-form-label">Nome:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_first_name" name="first_name"
+								   placeholder="Nome">
+						</div>
+					</div>
+
+					{#last_name#}
+					<div class="form-group">
+						<label for="input_last_name" class="col-sm-10 col-form-label">Sobrenome:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_last_name" name="last_name"
+								   placeholder="Sobrenome">
+						</div>
+					</div>
+
+					{#email#}
+					<div class="form-group">
+						<label for="input_email" class="col-sm-10 col-form-label">Email:</label>
+						<div class="col-sm">
+							<input type="email" class="form-control" id="input_email" name="email"
+								   placeholder="Email">
+						</div>
+					</div>
+
+					{#bio#}
+					<div class="form-group">
+						<label for="input_bio" class="col-sm-10 col-form-label">Bio:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_bio" name="bio"
+								   placeholder="Bio">
+						</div>
+					</div>
+
+					{#instituicao#}
+					<div class="form-group">
+						<label for="input_instituicao" class="col-sm-10 col-form-label">Instituicao:</label>
+						<div class="col-sm">
+							<input type="text" class="form-control" id="input_instituicao" name="instituicao"
+								   placeholder="Instituicao">
+						</div>
+					</div>
+
+					{#data_nascimento#}
+					<div class="form-group">
+						<label for="input_data_nascimento" class="col-sm-10 col-form-label">Data nascimento:</label>
+						<div class="col-sm">
+							<input type="date" class="form-control" id="input_data_nascimento" name="data_nascimento">
+						</div>
+					</div>
+
+					{#foto#}
+					<div class="form-group">
+						<label for="input_foto" class="col-sm-10 col-form-label">Foto:</label>
+						<div class="col-sm">
+							<input type="file" class="" id="input_foto" name="foto">
+						</div>
+					</div>
+
+					{#password1#}
+					<div class="form-group">
+						<label for="input_password1" class="col-sm-10 col-form-label">Senha:</label>
+						<div class="col-sm">
+							<input type="password" class="form-control" id="input_password1"
+								   name="password1" required>
+						</div>
+					</div>
+
+					{#password2#}
+					<div class="form-group">
+						<label for="input_password2" class="col-sm-10 col-form-label">Confirmar senha:</label>
+						<div class="col-sm">
+							<input type="password" class="form-control" id="input_password2"
+								   name="password2" required>
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-success">Salvar</button>
+					<input type="submit" class="btn btn-secondary" name="cancel" value="Cancelar" formnovalidate/>
+				</form>
+			</div>
+		</div>
+
+		<div class="col">
+
+		</div>
+	</section>
+
 {% endblock %}
