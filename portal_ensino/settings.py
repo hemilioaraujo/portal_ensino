@@ -37,6 +37,13 @@ LOGOUT_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
+    # PROJECT'S APP'S
+    'portal_ensino.base',
+    'portal_ensino.api',
+    'portal_ensino.aulas',
+    'portal_ensino.questoes',
+    'portal_ensino.comentarios',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,13 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-
-    # PROJECT'S APP'S
-    'portal_ensino.base',
-    'portal_ensino.api',
-    'portal_ensino.aulas',
-    'portal_ensino.questoes',
-    'portal_ensino.comentarios',
 ]
 
 REST_FRAMEWORK = {
