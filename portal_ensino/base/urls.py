@@ -18,8 +18,8 @@ urlpatterns = [
 
     path('', xpto, name='password_reset'),
 
-    # LOGIN
-    path('contas/', include('django.contrib.auth.urls')),
+    # # LOGIN
+    # path('contas/', include('django.contrib.auth.urls')),
 
     # API
     path('api/', include(urls_api)),

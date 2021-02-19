@@ -78,7 +78,7 @@
 					<li><a href="{% url 'base:aula' %}" style="font-size: 0.8em" class=" ml-2">Aulas</a></li>
 					<div class="dropdown-divider"></div>
 					<li><a href="{% url 'base:sobre' %}" style="font-size: 0.8em" class=" ml-2">Sobre o projeto</a></li>
-					<li><a href="{% url 'base:logout' %}" style="font-size: 0.8em" class=" ml-2">Sair da conta</a></li>
+					<li><a href="{% url 'logout' %}" style="font-size: 0.8em" class=" ml-2">Sair da conta</a></li>
 				</ul>
 			</div>
 
@@ -117,7 +117,7 @@
 			</spam>
 
 			<div class="navbar-brand">
-				<a href="{% url 'base:login' %}" style="font-size: 0.88em" class="border btn btn-primary font-weight-bold">Entre</a>
+				<a href="{% url 'login' %}" style="font-size: 0.88em" class="border btn btn-primary font-weight-bold">Entre</a>
 				<a href="{% url 'base:novo_usuario' %}" style="font-size: 0.88em"
 				   class=" border btn btn-success font-weight-bold">Cadastre-se</a>
 			</div>
@@ -139,7 +139,7 @@
 {% else %}
 	<div class="text-center m-5">
 		<h2 class="font-weight-bold font-italic">NUNCA FOI TÃO FÁCIL APRENDER MATEMÁTICA!</h2>
-		<a href="{% url 'base:login' %}" class="btn btn-primary mt-5 mb-2 font-italic">
+		<a href="{% url 'login' %}" class="btn btn-primary mt-5 mb-2 font-italic">
 			<h3><i class="fas fa-play-circle"></i> COMECE JÁ</h3></a>
 	</div>
 {% endif %}
