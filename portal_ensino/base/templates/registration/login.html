@@ -19,7 +19,7 @@
 					{{ message }}
 				</div>
 			{% endfor %}
-			<form action="{% url 'base:login' %}" class="form-signin" method="post">
+			<form action="{% url 'login' %}" class="form-signin" method="post">
 				{% csrf_token %}
 				<div class="form-group row">
 					<label for="inputUsername" class="col-sm-2 col-form-label">Usuário</label>
@@ -38,7 +38,7 @@
 																					  aria-hidden="true"></i></span>
 						</div>
 					</div>
-					<div class="col"><a href="{% url 'base:password_reset' %}" class="float-right small">Esqueci a
+					<div class="col"><a href="{% url 'password_reset' %}" class="float-right small">Esqueci a
 						senha</a>
 					</div>
 				</div>

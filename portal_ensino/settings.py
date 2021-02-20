@@ -37,6 +37,13 @@ LOGOUT_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
+    # PROJECT'S APP'S
+    'portal_ensino.base',
+    'portal_ensino.api',
+    'portal_ensino.aulas',
+    'portal_ensino.questoes',
+    'portal_ensino.comentarios',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,13 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-
-    # PROJECT'S APP'S
-    'portal_ensino.base',
-    'portal_ensino.api',
-    'portal_ensino.aulas',
-    'portal_ensino.questoes',
-    'portal_ensino.comentarios',
 ]
 
 REST_FRAMEWORK = {
@@ -178,3 +178,11 @@ if AWS_ACCESS_KEY_ID:
 
     INSTALLED_APPS.append('s3_folder_storage')
     INSTALLED_APPS.append('storages')
+
+# EMAIL
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
