@@ -1,5 +1,5 @@
 from django.urls import path, include
-from portal_ensino.base.views import home, xpto, exibir_profile, sobre
+from portal_ensino.base.views import home, exibir_profile, sobre
 from portal_ensino.base.views import usuarios_update, usuarios_delete, usuarios_novo
 from portal_ensino.api import urls as urls_api
 from portal_ensino.aulas import urls as urls_aulas
