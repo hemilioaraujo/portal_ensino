@@ -16,8 +16,6 @@ urlpatterns = [
     path('novo-usuario/', usuarios_novo, name='novo_usuario'),
     path('sobre/', sobre, name='sobre'),
 
-    path('', xpto, name='password_reset'),
-
     # # LOGIN
     # path('contas/', include('django.contrib.auth.urls')),
 
