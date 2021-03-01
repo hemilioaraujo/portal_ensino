@@ -1,6 +1,7 @@
 from datetime import datetime
 from rest_framework import serializers
 
+from portal_ensino.aulas.models import Aulas
 from portal_ensino.base.models import User
 
 
@@ -25,6 +26,7 @@ from portal_ensino.base.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
+        depth = 1
         fields = [
             'id',
             'username',
@@ -36,4 +38,15 @@ class UserSerializer(serializers.ModelSerializer):
             'data_nascimento',
             'foto',
             'aula_atual'
+        ]
+
+
+class AulaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Aulas
+        fields = [
+            'id',
+            'titulo',
+            'link',
+            'material'
         ]
