@@ -35,14 +35,3 @@ class CreateUserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
-
-
-class AulaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Aulas
-        fields = [
-            'id',
-            'titulo',
-            'link',
-            'material'
-        ]

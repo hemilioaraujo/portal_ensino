@@ -1,10 +1,13 @@
 from django.http import Http404
 from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-from portal_ensino.api.serializers import UserSerializer, CreateUserSerializer
+from portal_ensino.base.api.serializers import UserSerializer, CreateUserSerializer
+from portal_ensino.aulas.api.serializer import AulaSerializer
+from portal_ensino.aulas.models import Aulas
 from portal_ensino.base.models import User
 
 
@@ -68,3 +71,12 @@ class CreateUserAPI(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AulaAPI:
+    @staticmethod
+    @api_view(['GET'])
+    @permission_classes([IsAuthenticated])
+    def get_aula(request):
+        serializer = AulaSerializer(Aulas.objects.get(pk=1))
+        return Response(serializer.data)
