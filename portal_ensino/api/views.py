@@ -1,10 +1,14 @@
 from django.http import Http404
 from rest_framework import status
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-from portal_ensino.api.serializers import UserSerializer, CreateUserSerializer
+from portal_ensino.aulas.views import proxima_aula, aula_anterior
+from portal_ensino.base.api.serializers import UserSerializer, CreateUserSerializer
+from portal_ensino.aulas.api.serializer import AulaSerializer
+from portal_ensino.aulas.models import Aulas
 from portal_ensino.base.models import User
 
 
@@ -22,37 +26,46 @@ class HelloViewProtected(APIView):
         return Response(content)
 
 
-class UserAPI(APIView):
+class UserAPI:
     permission_classes = (IsAuthenticated,)
 
-    def get_object(self, pk):
+    @staticmethod
+    def get_object(pk):
         try:
             return User.objects.get(pk=pk)
         except User.DoesNotExist:
             raise Http404
 
-    def get(self, request):
+    @staticmethod
+    @api_view(['GET'])
+    def get(request):
         serialized = UserSerializer(User.objects.get(pk=request.user.id))
         return Response(serialized.data)
 
-    def post(self, request):
-        user = self.get_object(pk=request.user.id)
+    @staticmethod
+    @api_view(['POST'])
+    def post(request):
+        user = UserAPI.get_object(pk=request.user.id)
         serializer = UserSerializer(user, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def put(self, request):
-        user = self.get_object(pk=request.user.id)
+    @staticmethod
+    @api_view(['PUT'])
+    def put(request):
+        user = UserAPI.get_object(pk=request.user.id)
         serializer = UserSerializer(user, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request):
-        user = self.get_object(pk=request.user.id)
+    @staticmethod
+    @api_view(['DELETE'])
+    def delete(request):
+        user = UserAPI.get_object(pk=request.user.id)
         if user.is_active:
             content = {'message': f'User {user.username} excluído com sucesso!'}
             user.delete()
@@ -62,9 +75,45 @@ class UserAPI(APIView):
 
 
 class CreateUserAPI(APIView):
+    permission_classes = ()
+
     def post(self, request):
         serializer = CreateUserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AulaAPI:
+    permission_classes = (IsAuthenticated,)
+
+    @staticmethod
+    def get_object(pk):
+        try:
+            return Aulas.objects.get(pk=pk)
+        except Aulas.DoesNotExist:
+            raise Http404
+
+    @staticmethod
+    @api_view(['GET'])
+    def get(request):
+        id = request.user.aula_atual.id
+        serializer = AulaSerializer(Aulas.objects.get(pk=id))
+        return Response(serializer.data)
+
+    @staticmethod
+    @api_view(['GET'])
+    def proxima(request):
+        proxima_aula(request=request)
+        id = request.user.aula_atual.id
+        serializer = AulaSerializer(Aulas.objects.get(pk=id))
+        return Response(serializer.data)
+
+    @staticmethod
+    @api_view(['GET'])
+    def anterior(request):
+        aula_anterior(request=request)
+        id = request.user.aula_atual.id
+        serializer = AulaSerializer(Aulas.objects.get(pk=id))
+        return Response(serializer.data)

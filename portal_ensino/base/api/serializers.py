@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from portal_ensino.aulas.models import Aulas
 from portal_ensino.base.models import User
 
 
@@ -35,14 +34,3 @@ class CreateUserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
-
-
-class AulaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Aulas
-        fields = [
-            'id',
-            'titulo',
-            'link',
-            'material'
-        ]
