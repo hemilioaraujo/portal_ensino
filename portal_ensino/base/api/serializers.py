@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from portal_ensino.aulas.models import Aulas
 from portal_ensino.base.models import User
 
 
