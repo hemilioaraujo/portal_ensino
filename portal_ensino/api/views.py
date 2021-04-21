@@ -125,8 +125,50 @@ class ComentarioAPI:
     permission_classes = (IsAuthenticated,)
 
     @staticmethod
+    def get_object(pk):
+        try:
+            return Comentarios.objects.get(pk=pk)
+        except Comentarios.DoesNotExist:
+            raise Http404
+
+    @staticmethod
     @api_view(['GET'])
     def get(request):
-        comentarios = Comentarios.objects.all()
+        user = UserAPI.get_object(request.user.id)
+        comentarios = Comentarios.objects.filter(aula_referente=user.aula_atual)
+        print(comentarios)
         serializer = ComentarioSerializer(comentarios, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @staticmethod
+    @api_view(['POST'])
+    def post(request):
+        user = UserAPI.get_object(request.user.id)
+        aula = user.aula_atual
+
+        try:
+            text = request.data['comentario']
+        except KeyError:
+            content = {'message': 'Campo comentario não recebido!'}
+            return Response(content, status=status.HTTP_400_BAD_REQUEST)
+
+        if text:
+            comentario = Comentarios.objects.create(user=user, aula_referente=aula, comentario=text)
+            comentario.save()
+            content = {'message': 'Postado'}
+            return Response(content, status=status.HTTP_201_CREATED)
+        content = {'message': 'Comentário vazio!'}
+        return Response(content, status=status.HTTP_400_BAD_REQUEST)
+
+    @staticmethod
+    @api_view(['DELETE'])
+    def delete(request, id):
+        user = UserAPI.get_object(request.user.id)
+        comentario = ComentarioAPI.get_object(id)
+
+        if user.id == comentario.user.id:
+            content = {'message': f'Comentario: \'{comentario.comentario}\' removido!'}
+            comentario.delete()
+            return Response(content, status=status.HTTP_200_OK)
+        content = {'message': 'Não encontrado ou não pertence a você!'}
+        return Response(content, status=status.HTTP_403_FORBIDDEN)
