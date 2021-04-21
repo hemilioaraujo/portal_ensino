@@ -12,6 +12,7 @@ from portal_ensino.aulas.models import Aulas
 from portal_ensino.base.models import User
 from portal_ensino.comentarios.api.serializer import ComentarioSerializer
 from portal_ensino.comentarios.models import Comentarios
+from portal_ensino.questoes.models import Questoes
 
 
 class HelloView(APIView):
@@ -172,3 +173,23 @@ class ComentarioAPI:
             return Response(content, status=status.HTTP_200_OK)
         content = {'message': 'Não encontrado ou não pertence a você!'}
         return Response(content, status=status.HTTP_403_FORBIDDEN)
+
+
+class QuestaoAPI:
+    permission_classes = (IsAuthenticated,)
+
+    @staticmethod
+    def get_object(pk):
+        try:
+            return Questoes.objects.get(pk=pk)
+        except Questoes.DoesNotExist:
+            raise Http404
+
+    @staticmethod
+    @api_view(['GET'])
+    def get(request):
+        user = UserAPI.get_object(request.user.id)
+        comentarios = Comentarios.objects.filter(aula_referente=user.aula_atual)
+        print(comentarios)
+        serializer = ComentarioSerializer(comentarios, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
