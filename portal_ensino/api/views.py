@@ -130,4 +130,3 @@ class ComentarioAPI:
         comentarios = Comentarios.objects.all()
         serializer = ComentarioSerializer(comentarios, many=True)
         return Response(serializer.data)
-
