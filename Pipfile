@@ -16,6 +16,7 @@ django-s3-folder-storage = "*"
 collectfast = "*"
 pillow = "*"
 djangorestframework = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.8"

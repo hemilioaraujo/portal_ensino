@@ -8,7 +8,7 @@ class Comentarios(models.Model):
     aula_referente = models.ForeignKey(Aulas, default=None, blank=False, null=False, on_delete=models.CASCADE)
     user = models.ForeignKey(User, default=None, blank=False, null=False, on_delete=models.CASCADE)
     comentario = models.TextField(default=None, blank=False, null=False)
-    data = models.DateTimeField(auto_now_add=True)
+    data_postagem = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = "Comentário"

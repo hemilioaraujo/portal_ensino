@@ -14,7 +14,7 @@ def aula(request):
             post_comentario(request)
             return redirect('base:aula')
     else:
-        comentarios = Comentarios.objects.filter(aula_referente=request.user.aula_atual.id).order_by('data')
+        comentarios = Comentarios.objects.filter(aula_referente=request.user.aula_atual.id).order_by('data_postagem')
         return render(request, 'aulas/aula.html', {'usuario': request.user, 'comentarios': comentarios})
 
 

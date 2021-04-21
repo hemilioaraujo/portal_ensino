@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AulasConfig(AppConfig):
-    name = 'aulas'
+    name = 'portal_ensino.aulas'

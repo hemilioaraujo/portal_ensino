@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class QuestoesConfig(AppConfig):
-    name = 'questoes'
+    name = 'portal_ensino.questoes'
