@@ -20,7 +20,13 @@ urlpatterns = [
     path('aula/anterior/', views.AulaAPI.anterior, name='anterior_aula_api'),
 
     # COMENTÁRIOS
-    path('comentario/get/all/', views.ComentarioAPI.get, name='comentario_all'),
+    path('comentario/get/all/', views.ComentarioAPI.get, name='lista_comentario'),
+    path('comentario/post/', views.ComentarioAPI.post, name='novo_comentario'),
+    path('comentario/delete/<int:id>/', views.ComentarioAPI.delete, name='excluir_comentario'),
+
+    # EXERCÍCIOS
+    path('exercicio/get/all/', views.ComentarioAPI.get, name='lista_exercicio'),
+
 
     # GET TOKEN
     path('token-request/', obtain_auth_token, name='token-request'),

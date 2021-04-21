@@ -15,4 +15,4 @@ class Comentarios(models.Model):
         verbose_name_plural = "Comentários"
 
     def __str__(self):
-        return f'Aula: {self.aula_referente.id} User: {self.user} Comentário: {self.data}'
+        return f'Aula: {self.aula_referente.id} User: {self.user} Comentário: {self.data_postagem}'
