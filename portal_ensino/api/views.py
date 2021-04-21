@@ -12,6 +12,7 @@ from portal_ensino.aulas.models import Aulas
 from portal_ensino.base.models import User
 from portal_ensino.comentarios.api.serializer import ComentarioSerializer
 from portal_ensino.comentarios.models import Comentarios
+from portal_ensino.questoes.api.serializers import QuestoesSerializer
 from portal_ensino.questoes.models import Questoes
 
 
@@ -186,10 +187,40 @@ class QuestaoAPI:
             raise Http404
 
     @staticmethod
+    def esta_correto(resposta):
+        questao = QuestaoAPI.get_object(resposta['id'])
+        if resposta['resposta'] == questao.resposta_correta:
+            return True
+        return False
+
+    @staticmethod
     @api_view(['GET'])
     def get(request):
         user = UserAPI.get_object(request.user.id)
-        comentarios = Comentarios.objects.filter(aula_referente=user.aula_atual)
-        print(comentarios)
-        serializer = ComentarioSerializer(comentarios, many=True)
+        questoes = Questoes.objects.filter(aula_referente=user.aula_atual)
+        # questoes = Questoes.objects.all()
+        # print(f'Usuario:{user.username}  Aula:{user.aula_atual.titulo}  Questoes:{questoes}')
+        serializer = QuestoesSerializer(questoes, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @staticmethod
+    @api_view(['POST'])
+    def post(request):
+        respostas = request.data
+        print(respostas)
+        questoes = Questoes.objects.filter(aula_referente=request.user.aula_atual)
+        quantidade_de_questoes = len(questoes)
+        quantidade_de_respostas = len(respostas)
+        acertos = 0
+
+        if quantidade_de_questoes == quantidade_de_respostas:
+            for resposta in respostas:
+                if QuestaoAPI.esta_correto(resposta):
+                    print('certo')
+                    acertos += 1
+                    porcentagem_de_acertos = (acertos * 100) / quantidade_de_questoes
+
+                    if porcentagem_de_acertos > 60.0:
+                        return Response({'message': 'aprovado'}, status=status.HTTP_200_OK)
+            return Response({'message': 'reprovado'}, status=status.HTTP_200_OK)
+        return Response({'message': 'Não foram respondidas todas questões'}, status=status.HTTP_200_OK)

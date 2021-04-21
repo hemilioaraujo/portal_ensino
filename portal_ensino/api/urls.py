@@ -25,7 +25,8 @@ urlpatterns = [
     path('comentario/delete/<int:id>/', views.ComentarioAPI.delete, name='excluir_comentario'),
 
     # EXERCÍCIOS
-    path('exercicio/get/all/', views.ComentarioAPI.get, name='lista_exercicio'),
+    path('exercicio/get/all/', views.QuestaoAPI.get, name='lista_exercicio'),
+    path('exercicio/post/', views.QuestaoAPI.post, name='envia_exercicio'),
 
 
     # GET TOKEN
