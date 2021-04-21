@@ -145,13 +145,16 @@ class ComentarioAPI:
     def post(request):
         user = UserAPI.get_object(request.user.id)
         aula = user.aula_atual
+
         try:
             text = request.data['comentario']
-        except:
+        except KeyError:
             content = {'message': 'Campo comentario não recebido!'}
             return Response(content, status=status.HTTP_400_BAD_REQUEST)
+
         if text:
             comentario = Comentarios.objects.create(user=user, aula_referente=aula, comentario=text)
+            comentario.save()
             content = {'message': 'Postado'}
             return Response(content, status=status.HTTP_201_CREATED)
         content = {'message': 'Comentário vazio!'}
@@ -161,7 +164,6 @@ class ComentarioAPI:
     @api_view(['DELETE'])
     def delete(request, id):
         user = UserAPI.get_object(request.user.id)
-        aula = AulaAPI.get_object(user.aula_atual.id)
         comentario = ComentarioAPI.get_object(id)
 
         if user.id == comentario.user.id:
