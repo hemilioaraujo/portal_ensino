@@ -7,9 +7,11 @@ from rest_framework.permissions import IsAuthenticated
 
 from portal_ensino.aulas.views import proxima_aula, aula_anterior
 from portal_ensino.base.api.serializers import UserSerializer, CreateUserSerializer
-from portal_ensino.aulas.api.serializer import AulaSerializer
+from portal_ensino.aulas.api.serializers import AulaSerializer
 from portal_ensino.aulas.models import Aulas
 from portal_ensino.base.models import User
+from portal_ensino.comentarios.api.serializer import ComentarioSerializer
+from portal_ensino.comentarios.models import Comentarios
 
 
 class HelloView(APIView):
@@ -117,3 +119,15 @@ class AulaAPI:
         id = request.user.aula_atual.id
         serializer = AulaSerializer(Aulas.objects.get(pk=id))
         return Response(serializer.data)
+
+
+class ComentarioAPI:
+    permission_classes = (IsAuthenticated,)
+
+    @staticmethod
+    @api_view(['GET'])
+    def get(request):
+        comentarios = Comentarios.objects.all()
+        serializer = ComentarioSerializer(comentarios, many=True)
+        return Response(serializer.data)
+
