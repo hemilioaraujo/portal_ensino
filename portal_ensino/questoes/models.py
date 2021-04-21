@@ -5,12 +5,18 @@ from portal_ensino.aulas.models import Aulas
 
 
 class Questoes(models.Model):
+    escolhas = (
+        ('a', 'a'),
+        ('b', 'b'),
+        ('c', 'c'),
+        ('d', 'd'),
+    )
     questao = models.TextField(blank=False, null=False)
     alt1 = models.TextField(blank=False, null=False)
     alt2 = models.TextField(blank=False, null=False)
     alt3 = models.TextField(blank=False, null=False)
     alt4 = models.TextField(blank=False, null=False)
-    resposta_correta = models.TextField(blank=False, null=False)
+    resposta_correta = models.TextField(blank=False, null=False, choices=escolhas)
     aula_referente = models.ForeignKey(Aulas, default=None, blank=True, null=True, on_delete=models.CASCADE)
 
     class Meta:
