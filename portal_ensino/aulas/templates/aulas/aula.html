@@ -44,7 +44,7 @@
             <div class="media mb-2 bg-light rounded shadow">
                 <img class="rounded align-self-center mr-2 ml-2" src="{{ i.user.foto.url }}" alt="Foto {{ i.user.first_name }}" width="30px">
                 <div class="media-body">
-                    <h6 class="mt-0 bg-gradient-secondary border-bottom border-gradient-secondary" name="{{ i.id }}">{{ i.user.first_name }} - {{ i.data }}</h6>
+                    <h6 class="mt-0 bg-gradient-secondary border-bottom border-gradient-secondary" name="{{ i.id }}">{{ i.user.first_name }} - {{ i.data_postagem }}</h6>
                     {% if user.id == i.user.id %}
                         <a href="{% url 'base:deletar_comentario' i.id %}" class="float-right" name="excluir" style="max-width: 18rem;">
                             <span class="input-group-text bg-light m-2" style="font-size: 0.9em" id="icon_spam"><i class="fas fa-trash" style="color: lightseagreen"></i></span>
